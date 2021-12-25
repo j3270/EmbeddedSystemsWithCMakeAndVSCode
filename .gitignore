@@ -1,6 +1,8 @@
 
 **/build
 
+**jdebug.user
+
 CMakeLists.txt.user
 CMakeCache.txt
 CMakeFiles
