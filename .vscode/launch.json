@@ -1,0 +1,38 @@
+{
+    // Use IntelliSense to learn about possible attributes.
+    // Hover to view descriptions of existing attributes.
+    // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "cwd": "${workspaceFolder}",
+            "executable": "./build/projects/blinky/blinky.elf",
+            "name": "Debug blinky",
+            "request": "launch",
+            "type": "cortex-debug",
+            "servertype": "jlink",
+            "armToolchainPath": "${env:GCC_INSTALL}/bin",
+            "device": "ATSAMD10C14",
+            "interface": "swd",
+            "serialNumber": "", // add J-Link serial number if having multiple attached the same time.
+            "runToMain": true,
+            "svdFile": "${workspaceFolder}/svd/ATSAMD10C14A.svd",
+
+        },
+        {
+            "cwd": "${workspaceFolder}",
+            "executable": "./build/projects/SeggerRttPrintfTest/SeggerRttPrintfTest.elf",
+            "name": "Debug SeggerRttPrintfTest",
+            "request": "launch",
+            "type": "cortex-debug",
+            "servertype": "jlink",
+            "armToolchainPath": "${env:GCC_INSTALL}/bin",
+            "device": "ATSAMD10C14",
+            "interface": "swd",
+            "serialNumber": "", // add J-Link serial number if having multiple attached the same time.
+            "runToMain": true,
+            "svdFile": "${workspaceFolder}/svd/ATSAMD10C14A.svd",
+
+        }
+    ]
+}
