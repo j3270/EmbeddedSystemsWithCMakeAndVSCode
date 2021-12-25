@@ -5,7 +5,7 @@
 **********************************************************************
 
 File          : C:/GitHub/SAMD_Experiments/projects/blinky/blinky.jdebug
-Created       : 25 Dec 2021 10:51
+Created       : 25 Dec 2021 11:10
 Ozone Version : V3.24g
 */
 
@@ -22,13 +22,10 @@ void OnProjectLoad (void) {
   //
   // Dialog-generated settings
   //
-  Project.AddPathSubstitute ("C:/GitHub/SAMD_Experiments/projects/blinky", "$(ProjectDir)");
-  Project.AddPathSubstitute ("c:/github/samd_experiments/projects/blinky", "$(ProjectDir)");
-  Project.SetDevice ("ATSAMD10C14");
   Project.SetHostIF ("USB", "");
+  Project.SetDevice ("ATSAMD10C14");
   Project.SetTargetIF ("SWD");
   Project.SetTIFSpeed ("4 MHz");
-  Project.AddSvdFile ("$(InstallDir)/Config/CPU/Cortex-M0.svd");
   Project.AddSvdFile ("$(ProjectDir)/../../svd/ATSAMD10C14A.svd");
   //
   // User settings
@@ -113,9 +110,8 @@ void OnProjectLoad (void) {
 **
 **********************************************************************
 */
-void AfterTargetReset (void) {
-  _SetupTarget();
-}
+//void AfterTargetReset (void) {
+//}
 
 /*********************************************************************
 *
@@ -199,9 +195,8 @@ void AfterTargetReset (void) {
 *
 **********************************************************************
 */
-void AfterTargetDownload (void) {
-  _SetupTarget();
-}
+//void AfterTargetDownload (void) {
+//}
 
 /*********************************************************************
 *
@@ -299,39 +294,3 @@ void AfterTargetDownload (void) {
 */
 //void OnError (void) {
 //}
-
-/*********************************************************************
-*
-*       _SetupTarget
-*
-* Function description
-*   Setup the target.
-*   Called by AfterTargetReset() and AfterTargetDownload().
-*
-*   Auto-generated function. May be overridden by Ozone.
-*
-**********************************************************************
-*/
-void _SetupTarget(void) {
-  unsigned int SP;
-  unsigned int PC;
-  unsigned int VectorTableAddr;
-
-  VectorTableAddr = Elf.GetBaseAddr();
-  //
-  // Set up initial stack pointer
-  //
-  SP = Target.ReadU32(VectorTableAddr);
-  if (SP != 0xFFFFFFFF) {
-    Target.SetReg("SP", SP);
-  }
-  //
-  // Set up entry point PC
-  //
-  PC = Elf.GetEntryPointPC();
-  if (PC != 0xFFFFFFFF) {
-    Target.SetReg("PC", PC);
-  } else {
-    Util.Error("Project script error: failed to set up entry point PC", 1);
-  }
-}

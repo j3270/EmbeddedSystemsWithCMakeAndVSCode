@@ -6,6 +6,14 @@
 
 int main() {
 
-    return 0;
+    system_init();
+
+    while(1)
+    {
+        for(auto idx = 0; idx < 32767; idx++)
+        {
+            idx += 1;
+        }
+    }
 }
 
