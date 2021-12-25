@@ -2,9 +2,14 @@
 include(../../tools/cmake_files/gccFlags.cmake)
 
 set(ASSEMBLY_FILES 
+        ../../tools/SEGGER_RTT_V754b/RTT/SEGGER_RTT_ASM_ARMv7M.S
 )
 
 set(SOURCES 
+        ../../tools/SEGGER_RTT_V754b/RTT/SEGGER_RTT_printf.c
+        ../../tools/SEGGER_RTT_V754b/RTT/SEGGER_RTT.c
+        ../../tools/SEGGER_RTT_V754b/Syscalls/SEGGER_RTT_Syscalls_GCC.c
+        ../../tools/SEGGER_RTT_V754b/Syscalls/SEGGER_RTT_Syscalls_SES.c
         ../../xdk-asf-3.51.0/sam0/utils/cmsis/samd10/source/gcc/startup_samd10.c
         ../../xdk-asf-3.51.0/sam0/utils/cmsis/samd10/source/system_samd10.c
         ../../xdk-asf-3.51.0/common/utils/interrupt/interrupt_sam_nvic.c
@@ -19,6 +24,8 @@ set(SOURCES
 
 set(INCLUDE_DIRS 
         ../../projects/blinky
+        ../../tools/SEGGER_RTT_V754b/Config
+        ../../tools/SEGGER_RTT_V754b/RTT
         ../../xdk-asf-3.51.0/common/boards
         ../../xdk-asf-3.51.0/common/utils
         ../../xdk-asf-3.51.0/common/utils/interrupt

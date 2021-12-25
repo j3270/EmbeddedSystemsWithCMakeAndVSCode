@@ -19,6 +19,22 @@
           ],
           "problemMatcher": []
       },
+      {
+        "type": "process",
+        "command": "${env:OZONE}",
+        "label": "Ozone SeggerRttPrintfTest",
+        "args": [
+            "-device ATSAMD10C14",
+            "-if SWD",
+            "-speed 4000",
+            "-usb",
+            "-project",
+            "${workspaceFolder}/projects/SeggerRttPrintfTest/SeggerRttPrintfTest.jdebug",
+            "-programfile",
+            "${workspaceFolder}/build/projects/SeggerRttPrintfTest/SeggerRttPrintfTest.elf"
+        ],
+        "problemMatcher": []
+      },
     ]
   }
   
