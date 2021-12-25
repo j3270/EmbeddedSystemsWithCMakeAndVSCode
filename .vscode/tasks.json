@@ -1,0 +1,24 @@
+{
+    // See https://go.microsoft.com/fwlink/?LinkId=733558
+    // for the documentation about the tasks.json format
+    "version": "2.0.0",
+    "tasks": [
+      {
+          "type": "process",
+          "command": "${env:OZONE}",
+          "label": "Ozone blinky",
+          "args": [
+              "-device ATSAMD10C14",
+              "-if SWD",
+              "-speed 4000",
+              "-usb",
+              "-project",
+              "${workspaceFolder}/projects/blinky/blinky.jdebug",
+              "-programfile",
+              "${workspaceFolder}/build/projects/blinky/blinky.elf"
+          ],
+          "problemMatcher": []
+      },
+    ]
+  }
+  
