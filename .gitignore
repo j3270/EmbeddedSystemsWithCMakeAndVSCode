@@ -1,7 +1,12 @@
 
-**/build
+# VSCode Output
+*cortex-debug.*.state.json
 
-**jdebug.user
+# Ozone Debugger User Prefrences
+*.jdebug.user
+
+#CMake build folder
+**/build
 
 CMakeLists.txt.user
 CMakeCache.txt
