@@ -389,7 +389,7 @@ extern "C" {
 // User-reserved area: #include the header file of your board here (if any).
 #  include "user_board.h"
 #elif BOARD == DUMMY_BOARD
-#  include "dummy/dummy_board.h"
+#  include "dummy_board.h"
 #elif BOARD == SAMB11ZR_SENSOR_TAG
 #  include "samb11zr_sensor_tag/samb11zr_sensor_tag.h"
 #else
