@@ -1,0 +1,13 @@
+{
+	"folders": [
+		{
+			"path": "."
+		}
+	],
+	"settings": {
+		"files.associations": {
+			"samd10.h": "c",
+			"samd10c14a.h": "c"
+		}
+	}
+}
