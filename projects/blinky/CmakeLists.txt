@@ -2,39 +2,35 @@
 include(../../tools/cmake_files/gccFlags.cmake)
 
 set(ASSEMBLY_FILES 
-        ../../tools/SEGGER_RTT_V754b/RTT/SEGGER_RTT_ASM_ARMv7M.S
 )
 
 set(SOURCES 
-        ../../tools/SEGGER_RTT_V754b/RTT/SEGGER_RTT_printf.c
-        ../../tools/SEGGER_RTT_V754b/RTT/SEGGER_RTT.c
-        ../../tools/SEGGER_RTT_V754b/Syscalls/SEGGER_RTT_Syscalls_GCC.c
-        ../../tools/SEGGER_RTT_V754b/Syscalls/SEGGER_RTT_Syscalls_SES.c
-        ../../xdk-asf-3.51.0/sam0/utils/cmsis/samd10/source/gcc/startup_samd10.c
-        ../../xdk-asf-3.51.0/sam0/utils/cmsis/samd10/source/system_samd10.c
+        main.cpp
         ../../xdk-asf-3.51.0/common/utils/interrupt/interrupt_sam_nvic.c
+        ../../xdk-asf-3.51.0/common2/services/delay/sam0/systick_counter.c
+        ../../xdk-asf-3.51.0/sam0/drivers/port/port.c
         ../../xdk-asf-3.51.0/sam0/drivers/system/system.c
         ../../xdk-asf-3.51.0/sam0/drivers/system/pinmux/pinmux.c
         ../../xdk-asf-3.51.0/sam0/drivers/system/interrupt/system_interrupt.c
         ../../xdk-asf-3.51.0/sam0/drivers/system/clock/clock_samd09_d10_d11/clock.c
         ../../xdk-asf-3.51.0/sam0/drivers/system/clock/clock_samd09_d10_d11/gclk.c
-        ../../xdk-asf-3.51.0/sam0/drivers/port/port.c
-        main.cpp
+        ../../xdk-asf-3.51.0/sam0/utils/cmsis/samd10/source/gcc/startup_samd10.c
+        ../../xdk-asf-3.51.0/sam0/utils/cmsis/samd10/source/system_samd10.c
 )
 
 set(INCLUDE_DIRS 
         ../../projects/blinky
-        ../../tools/SEGGER_RTT_V754b/Config
-        ../../tools/SEGGER_RTT_V754b/RTT
         ../../xdk-asf-3.51.0/common/boards
         ../../xdk-asf-3.51.0/common/utils
         ../../xdk-asf-3.51.0/common/utils/interrupt
+        ../../xdk-asf-3.51.0/common2/services/delay
+        ../../xdk-asf-3.51.0/common2/services/delay/sam0
         ../../xdk-asf-3.51.0/sam0/boards/dummy
+        ../../xdk-asf-3.51.0/sam0/drivers/port
         ../../xdk-asf-3.51.0/sam0/drivers/system
         ../../xdk-asf-3.51.0/sam0/drivers/system/clock
         ../../xdk-asf-3.51.0/sam0/drivers/system/clock/clock_samd09_d10_d11
         ../../xdk-asf-3.51.0/sam0/drivers/system/clock/clock_samd09_d10_d11/module_config
-        ../../xdk-asf-3.51.0/sam0/drivers/port
         ../../xdk-asf-3.51.0/sam0/drivers/system/interrupt
         ../../xdk-asf-3.51.0/sam0/drivers/system/interrupt/system_interrupt_samd10_d11
         ../../xdk-asf-3.51.0/sam0/drivers/system/pinmux
@@ -53,10 +49,9 @@ set(INCLUDE_DIRS
 )
 
 set(DEFINES 
-        #-DSAM
-        #-DSAMD10
         -D__SAMD10C14A__
         -DBOARD=DUMMY_BOARD
+        -DSYSTICK_MODE
 )
 
 set(CPU_FLAGS
