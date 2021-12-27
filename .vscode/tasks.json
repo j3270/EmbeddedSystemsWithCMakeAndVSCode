@@ -35,6 +35,22 @@
         ],
         "problemMatcher": []
       },
+      {
+        "type": "process",
+        "command": "${env:OZONE}",
+        "label": "Ozone helloworld",
+        "args": [
+            "-device ATSAMD10C14",
+            "-if SWD",
+            "-speed 4000",
+            "-usb",
+            "-project",
+            "${workspaceFolder}/projects/helloworld/helloworld.jdebug",
+            "-programfile",
+            "${workspaceFolder}/build/projects/helloworld/helloworld.elf"
+        ],
+        "problemMatcher": []
+      },
     ]
   }
   

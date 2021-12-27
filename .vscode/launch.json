@@ -33,6 +33,21 @@
             "runToMain": true,
             "svdFile": "${workspaceFolder}/svd/ATSAMD10C14A.svd",
 
+        },
+        {
+            "cwd": "${workspaceFolder}",
+            "executable": "./build/projects/helloworld/helloworld.elf",
+            "name": "Debug helloworld",
+            "request": "launch",
+            "type": "cortex-debug",
+            "servertype": "jlink",
+            "armToolchainPath": "${env:GCC_INSTALL}/bin",
+            "device": "ATSAMD10C14",
+            "interface": "swd",
+            "serialNumber": "", // add J-Link serial number if having multiple attached the same time.
+            "runToMain": true,
+            "svdFile": "${workspaceFolder}/svd/ATSAMD10C14A.svd",
+
         }
     ]
 }
