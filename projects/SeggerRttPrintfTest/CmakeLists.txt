@@ -6,20 +6,21 @@ set(ASSEMBLY_FILES
 )
 
 set(SOURCES 
+        main.cpp
         ../../tools/SEGGER_RTT_V754b/RTT/SEGGER_RTT_printf.c
         ../../tools/SEGGER_RTT_V754b/RTT/SEGGER_RTT.c
         ../../tools/SEGGER_RTT_V754b/Syscalls/SEGGER_RTT_Syscalls_GCC.c
         ../../tools/SEGGER_RTT_V754b/Syscalls/SEGGER_RTT_Syscalls_SES.c
-        ../../xdk-asf-3.51.0/sam0/utils/cmsis/samd10/source/gcc/startup_samd10.c
-        ../../xdk-asf-3.51.0/sam0/utils/cmsis/samd10/source/system_samd10.c
         ../../xdk-asf-3.51.0/common/utils/interrupt/interrupt_sam_nvic.c
+        ../../xdk-asf-3.51.0/common2/services/delay/sam0/systick_counter.c
+        ../../xdk-asf-3.51.0/sam0/drivers/port/port.c
         ../../xdk-asf-3.51.0/sam0/drivers/system/system.c
         ../../xdk-asf-3.51.0/sam0/drivers/system/pinmux/pinmux.c
         ../../xdk-asf-3.51.0/sam0/drivers/system/interrupt/system_interrupt.c
-        ../../xdk-asf-3.51.0/sam0/drivers/system/clock/clock_samd09_d10_d11/clock.c
-        ../../xdk-asf-3.51.0/sam0/drivers/system/clock/clock_samd09_d10_d11/gclk.c
-        ../../xdk-asf-3.51.0/sam0/drivers/port/port.c
-        main.cpp
+        ../../xdk-asf-3.51.0/sam0/drivers/system/clock/clock_samd21_r21_da_ha1/clock.c
+        ../../xdk-asf-3.51.0/sam0/drivers/system/clock/clock_samd21_r21_da_ha1/gclk.c
+        ../../xdk-asf-3.51.0/sam0/utils/cmsis/samd21/source/gcc/startup_samd21.c
+        ../../xdk-asf-3.51.0/sam0/utils/cmsis/samd21/source/system_samd21.c
 )
 
 set(INCLUDE_DIRS 
@@ -29,34 +30,35 @@ set(INCLUDE_DIRS
         ../../xdk-asf-3.51.0/common/boards
         ../../xdk-asf-3.51.0/common/utils
         ../../xdk-asf-3.51.0/common/utils/interrupt
+        ../../xdk-asf-3.51.0/common2/services/delay
+        ../../xdk-asf-3.51.0/common2/services/delay/sam0
         ../../xdk-asf-3.51.0/sam0/boards/dummy
+        ../../xdk-asf-3.51.0/sam0/drivers/port
         ../../xdk-asf-3.51.0/sam0/drivers/system
         ../../xdk-asf-3.51.0/sam0/drivers/system/clock
-        ../../xdk-asf-3.51.0/sam0/drivers/system/clock/clock_samd09_d10_d11
-        ../../xdk-asf-3.51.0/sam0/drivers/system/clock/clock_samd09_d10_d11/module_config
-        ../../xdk-asf-3.51.0/sam0/drivers/port
+        ../../xdk-asf-3.51.0/sam0/drivers/system/clock/clock_samd21_r21_da_ha1
+        ../../xdk-asf-3.51.0/sam0/drivers/system/clock/clock_samd21_r21_da_ha1/module_config
         ../../xdk-asf-3.51.0/sam0/drivers/system/interrupt
-        ../../xdk-asf-3.51.0/sam0/drivers/system/interrupt/system_interrupt_samd10_d11
+        ../../xdk-asf-3.51.0/sam0/drivers/system/interrupt/system_interrupt_samd21
         ../../xdk-asf-3.51.0/sam0/drivers/system/pinmux
         ../../xdk-asf-3.51.0/sam0/drivers/system/power/power_sam_d_r_h
         ../../xdk-asf-3.51.0/sam0/drivers/system/reset/reset_sam_d_r_h
         ../../xdk-asf-3.51.0/sam0/utils
-        ../../xdk-asf-3.51.0/sam0/utils/cmsis/samd10/include
-        ../../xdk-asf-3.51.0/sam0/utils/cmsis/samd10/include/component
-        ../../xdk-asf-3.51.0/sam0/utils/cmsis/samd10/include/instance
-        ../../xdk-asf-3.51.0/sam0/utils/cmsis/samd10/include/pio
-        ../../xdk-asf-3.51.0/sam0/utils/cmsis/samd10/source
+        ../../xdk-asf-3.51.0/sam0/utils/cmsis/samd21/include
+        ../../xdk-asf-3.51.0/sam0/utils/cmsis/samd21/include/component
+        ../../xdk-asf-3.51.0/sam0/utils/cmsis/samd21/include/instance
+        ../../xdk-asf-3.51.0/sam0/utils/cmsis/samd21/include/pio
+        ../../xdk-asf-3.51.0/sam0/utils/cmsis/samd21/source
         ../../xdk-asf-3.51.0/sam0/utils/header_files
         ../../xdk-asf-3.51.0/sam0/utils/preprocessor
         ../../xdk-asf-3.51.0/thirdparty/CMSIS/Include
-        ../../xdk-asf-3.51.0/thirdparty/CMSIS/Lib/GCC 
+        ../../xdk-asf-3.51.0/thirdparty/CMSIS/Lib/GCC  
 )
 
 set(DEFINES 
-        #-DSAM
-        #-DSAMD10
-        -D__SAMD10C14A__
+        -D__SAMD21G15B__
         -DBOARD=DUMMY_BOARD
+        -DSYSTICK_MODE
 )
 
 set(CPU_FLAGS
