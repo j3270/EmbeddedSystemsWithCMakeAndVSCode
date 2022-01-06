@@ -12,11 +12,11 @@
             "type": "cortex-debug",
             "servertype": "jlink",
             "armToolchainPath": "${env:GCC_INSTALL}/bin",
-            "device": "ATSAMD10C14",
+            "device": "ATSAMD21G15",
             "interface": "swd",
             "serialNumber": "", // add J-Link serial number if having multiple attached the same time.
             "runToMain": true,
-            "svdFile": "${workspaceFolder}/svd/ATSAMD10C14A.svd",
+            "svdFile": "${workspaceFolder}/svd/ATSAMD21G15B.svd",
 
         },
         {
@@ -27,11 +27,11 @@
             "type": "cortex-debug",
             "servertype": "jlink",
             "armToolchainPath": "${env:GCC_INSTALL}/bin",
-            "device": "ATSAMD10C14",
+            "device": "ATSAMD21G15",
             "interface": "swd",
             "serialNumber": "", // add J-Link serial number if having multiple attached the same time.
             "runToMain": true,
-            "svdFile": "${workspaceFolder}/svd/ATSAMD10C14A.svd",
+            "svdFile": "${workspaceFolder}/svd/ATSAMD21G15B.svd",
 
         },
         {
@@ -42,11 +42,11 @@
             "type": "cortex-debug",
             "servertype": "jlink",
             "armToolchainPath": "${env:GCC_INSTALL}/bin",
-            "device": "ATSAMD10C14",
+            "device": "ATSAMD21G15",
             "interface": "swd",
             "serialNumber": "", // add J-Link serial number if having multiple attached the same time.
             "runToMain": true,
-            "svdFile": "${workspaceFolder}/svd/ATSAMD10C14A.svd",
+            "svdFile": "${workspaceFolder}/svd/ATSAMD21G15B.svd",
 
         }
     ]

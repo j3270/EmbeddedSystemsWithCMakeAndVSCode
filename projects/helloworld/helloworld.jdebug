@@ -23,14 +23,14 @@ void OnProjectLoad (void) {
   // Dialog-generated settings
   //
   Project.SetHostIF ("USB", "");
-  Project.SetDevice ("ATSAMD10C14");
+  Project.SetDevice ("ATSAMD21G15");
   Project.SetTargetIF ("SWD");
   Project.SetTIFSpeed ("4 MHz");
-  Project.AddSvdFile ("$(ProjectDir)/../../svd/ATSAMD10C14A.svd");
+  Project.AddSvdFile ("$(ProjectDir)/../../svd/ATSAMD21G15B.svd");
   //
   // User settings
   //
-  File.Open ("C:/GitHub/SAMD_Experiments/build/projects/helloworld/helloworld.elf");
+  File.Open ("$(ProjectDir)/../../build/projects/helloworld/helloworld.elf");
 }
 
 /*********************************************************************
