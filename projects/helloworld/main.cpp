@@ -18,6 +18,7 @@ static void configure_console(void)
 	struct usart_config usart_conf;
 
 	//8N1 9600 PA05 is Rx and PA08 is Tx on SAMD10C14
+	//8N1 9600 PA05 is Rx and PA06 is Tx on SAMD21G15B
 	usart_get_config_defaults(&usart_conf);
 	usart_serial_init(&cdc_uart_module, SERCOM0, &usart_conf);
 	usart_enable(&cdc_uart_module);
