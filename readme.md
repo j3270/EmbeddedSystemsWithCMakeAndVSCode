@@ -29,6 +29,6 @@ I am currently using the following evaluation boards for developemnt along with 
 
 - build (ignored)
 - projects
+- svd
 - tools
 - xdk-asf-3.51.0 (need to trim files not needed)
-- svd
