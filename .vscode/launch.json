@@ -16,6 +16,7 @@
             "interface": "swd",
             "serialNumber": "", // add J-Link serial number if having multiple attached the same time.
             "runToMain": true,
+            "breakAfterReset": true,
             "svdFile": "${workspaceFolder}/svd/ATSAMD21G15B.svd",
 
         },
@@ -31,6 +32,7 @@
             "interface": "swd",
             "serialNumber": "", // add J-Link serial number if having multiple attached the same time.
             "runToMain": true,
+            "breakAfterReset": true,
             "svdFile": "${workspaceFolder}/svd/ATSAMD21G15B.svd",
 
         },
@@ -46,6 +48,7 @@
             "interface": "swd",
             "serialNumber": "", // add J-Link serial number if having multiple attached the same time.
             "runToMain": true,
+            "breakAfterReset": true,
             "svdFile": "${workspaceFolder}/svd/ATSAMD21G15B.svd",
 
         }
