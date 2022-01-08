@@ -6,6 +6,10 @@ set(ASSEMBLY_FILES
 
 set(SOURCES 
         main.c
+        ../../tools/SEGGER_RTT_V754b/RTT/SEGGER_RTT_printf.c
+        ../../tools/SEGGER_RTT_V754b/RTT/SEGGER_RTT.c
+        ../../tools/SEGGER_RTT_V754b/Syscalls/SEGGER_RTT_Syscalls_GCC.c
+        ../../tools/SEGGER_RTT_V754b/Syscalls/SEGGER_RTT_Syscalls_SES.c
         ../../xdk-asf-3.51.0/common/utils/interrupt/interrupt_sam_nvic.c
         ../../xdk-asf-3.51.0/common2/services/delay/sam0/systick_counter.c
         ../../xdk-asf-3.51.0/sam0/drivers/adc/adc_sam_d_r_h/adc.c
@@ -22,7 +26,9 @@ set(SOURCES
 )
 
 set(INCLUDE_DIRS 
-        ../../projects/helloworld
+        ../../projects/read_pot
+        ../../tools/SEGGER_RTT_V754b/Config
+        ../../tools/SEGGER_RTT_V754b/RTT
         ../../xdk-asf-3.51.0/common/boards
         ../../xdk-asf-3.51.0/common/services/serial
         ../../xdk-asf-3.51.0/common/utils
