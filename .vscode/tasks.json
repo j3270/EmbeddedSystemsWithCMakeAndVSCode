@@ -8,7 +8,7 @@
           "command": "${env:OZONE}",
           "label": "Ozone blinky",
           "args": [
-              "-device ATSAMD10C14",
+              "-device ATSAMD21G15",
               "-if SWD",
               "-speed 4000",
               "-usb",
@@ -24,7 +24,7 @@
         "command": "${env:OZONE}",
         "label": "Ozone SeggerRttPrintfTest",
         "args": [
-            "-device ATSAMD10C14",
+            "-device ATSAMD21G15",
             "-if SWD",
             "-speed 4000",
             "-usb",
@@ -40,7 +40,7 @@
         "command": "${env:OZONE}",
         "label": "Ozone helloworld",
         "args": [
-            "-device ATSAMD10C14",
+            "-device ATSAMD21G15",
             "-if SWD",
             "-speed 4000",
             "-usb",
@@ -48,6 +48,22 @@
             "${workspaceFolder}/projects/helloworld/helloworld.jdebug",
             "-programfile",
             "${workspaceFolder}/build/projects/helloworld/helloworld.elf"
+        ],
+        "problemMatcher": []
+      },
+      {
+        "type": "process",
+        "command": "${env:OZONE}",
+        "label": "Ozone read_pot",
+        "args": [
+            "-device ATSAMD21G15",
+            "-if SWD",
+            "-speed 4000",
+            "-usb",
+            "-project",
+            "${workspaceFolder}/projects/read_pot/read_pot.jdebug",
+            "-programfile",
+            "${workspaceFolder}/build/projects/read_pot/read_pot.elf"
         ],
         "problemMatcher": []
       },
