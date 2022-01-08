@@ -13,7 +13,7 @@ volatile int _Cnt;
 */
 void main(void) {
 
-    /* SEGGER_RTT_ConfigUpBuffer(0, NULL, NULL, 0, SEGGER_RTT_MODE_BLOCK_IF_FIFO_FULL);
+    SEGGER_RTT_ConfigUpBuffer(0, NULL, NULL, 0, SEGGER_RTT_MODE_BLOCK_IF_FIFO_FULL);
   
     SEGGER_RTT_WriteString(0, "SEGGER Real-Time-Terminal Sample\r\n\r\n");
     SEGGER_RTT_WriteString(0, "###### Testing SEGGER_printf() ######\r\n");
@@ -97,6 +97,6 @@ void main(void) {
     SEGGER_RTT_WriteString(0, "###### SEGGER_printf() Tests done. ######\r\n");
     do {
       _Cnt++;
-    } while (1); */
+    } while (1);
 }
 

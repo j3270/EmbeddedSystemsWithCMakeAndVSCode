@@ -34,7 +34,7 @@ int main(void)
 	while (true) 
 	{
 		button_pressed = !port_pin_get_input_level(PIN_PA07);
-		button_pressed ? delay_ms(100) : delay_ms(500);
+		button_pressed ? delay_ms(125) : delay_ms(500);
 		port_pin_toggle_output_level(PIN_PA09);
 	}
 }

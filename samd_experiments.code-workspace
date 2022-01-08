@@ -7,7 +7,8 @@
 	"settings": {
 		"files.associations": {
 			"samd10.h": "c",
-			"samd10c14a.h": "c"
+			"samd10c14a.h": "c",
+			"samd21g15b.h": "c"
 		}
 	}
 }
