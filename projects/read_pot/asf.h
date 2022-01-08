@@ -52,9 +52,15 @@
  * running the ASF driver selector tool. Any changes will be discarded.
  */
 
+// From module: ADC - Analog-to-Digital Converter (Polled APIs)
+#include <adc.h>
+
 // From module: Common SAM0 compiler driver
 #include <compiler.h>
 #include <status_codes.h>
+
+// From module: Delay routines
+#include <delay.h>
 
 // From module: Generic board support
 #include <board.h>
@@ -86,5 +92,8 @@
 
 // From module: SYSTEM - Reset Management for SAM D20/D21/R21/D09/D10/D11/DA/HA
 #include <reset.h>
+
+// From module: USART - Serial interface- SAM implementation for devices with only USART
+#include <serial.h>
 
 #endif // ASF_H
