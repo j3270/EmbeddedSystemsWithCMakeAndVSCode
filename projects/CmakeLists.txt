@@ -1,4 +1,5 @@
 
+add_subdirectory(read_pot)
 add_subdirectory(blinky)
 add_subdirectory(helloworld)
 add_subdirectory(SeggerRttPrintfTest)

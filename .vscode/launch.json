@@ -51,6 +51,22 @@
             "breakAfterReset": true,
             "svdFile": "${workspaceFolder}/svd/ATSAMD21G15B.svd",
 
+        },
+        {
+            "cwd": "${workspaceFolder}",
+            "executable": "./build/projects/read_pot/read_pot.elf",
+            "name": "Debug read_pot",
+            "request": "launch",
+            "type": "cortex-debug",
+            "servertype": "jlink",
+            "armToolchainPath": "${env:GCC_INSTALL}/bin",
+            "device": "ATSAMD21G15",
+            "interface": "swd",
+            "serialNumber": "", // add J-Link serial number if having multiple attached the same time.
+            "runToMain": true,
+            "breakAfterReset": true,
+            "svdFile": "${workspaceFolder}/svd/ATSAMD21G15B.svd",
+
         }
     ]
 }
