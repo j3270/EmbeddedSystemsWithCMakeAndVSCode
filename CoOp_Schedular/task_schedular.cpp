@@ -28,6 +28,10 @@ void SysTick_Handler(void)
 
 namespace CoOpSchedular
 {
+    uint32_t get_schedular_ticks()
+    {
+        return systick_ticks;
+    }
 	/**** Class Task Defenitions **********************************************/
     Task::Task(std::string & name, uint32_t interval, void(*execute)())
     {

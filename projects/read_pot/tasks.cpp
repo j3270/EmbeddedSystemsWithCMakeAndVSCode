@@ -1,6 +1,7 @@
 
+#include <array>
 #include "asf.h"
-#include "task_schedular.h"
+#include "tasks.h"
 #include "SEGGER_RTT.h"
 
 /** Configure LED0, turn it off*/
@@ -24,31 +25,64 @@ static void configure_adc(void)
 	adc_enable(&adc_instance);
 }
 
+uint32_t get_schedular_ticks_from_ms(uint32_t milli_seconds)
+{
+	return (milli_seconds * 20);
+}
+
+uint32_t get_schedular_ticks_from_us(uint32_t micro_seconds)
+{
+	return micro_seconds/50;
+}
+
 void init_app()
 {
 	system_init();
 	config_led();
 	configure_adc();
-
-	/* System timer configuration */
-    SysTick_Config(SystemCoreClock / 1000000);
+	
+	//Systick of 50us
+	SysTick_Config(system_gclk_gen_get_hz(0)/20000);
+	NVIC_EnableIRQ(SysTick_IRQn);		// Enable SysTick Interrupt
 }
 
-void main_task()
+void toggle_led()
 {
-	static uint16_t adc_result {0};
-	static uint32_t delay_time {0};
+	port_pin_toggle_output_level(PIN_PA09);
+}
 
-    port_pin_toggle_output_level(PIN_PA09);
+static uint32_t filtered_adc_result {0};
+void read_pot()
+{
+	static const size_t num_filter_samples {10};
+	static std::array<uint16_t, num_filter_samples> adc_filter_samples;
+	static size_t sample_count {0};
+	uint16_t adc_result;
 
 	adc_start_conversion(&adc_instance);
 	while (adc_read(&adc_instance, &adc_result) == STATUS_BUSY);
-	//Scale 0 to 1000
-	delay_time = (adc_result*1000)/4095;
+
+	adc_filter_samples[sample_count++] = adc_result;
+	if(sample_count >= num_filter_samples)
+	{
+		sample_count = 0;
+		filtered_adc_result = 0;
+		for(int idx = (num_filter_samples -1); idx >= 0; idx--)
+		{
+			filtered_adc_result += adc_filter_samples[idx];
+		}
+		filtered_adc_result = filtered_adc_result/num_filter_samples;
+	}
+}
+
+void set_servo_position()
+{
+	uint32_t servo_position {(filtered_adc_result*100)/4095UL};
+
 	//Upper Hysteresis
-	delay_time = (delay_time >= 950) ? 1000 : delay_time;
+	servo_position = (servo_position > 95) ? 100 : servo_position;
 	//Lower Hysteresis
-	delay_time = (delay_time <= 50) ? 0 : delay_time;
-	//Print for debug
-	SEGGER_RTT_printf(0, "Delay Time: %u\r\n", delay_time);
+	servo_position = (servo_position < 5) ? 0 : servo_position;
+
+	SEGGER_RTT_printf(0, "Servo Position: %u%%\r\n", servo_position);
 }

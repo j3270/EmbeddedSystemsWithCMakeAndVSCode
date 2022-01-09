@@ -18,6 +18,7 @@
 /// Simple cooperative schedular
 namespace CoOpSchedular
 {
+	uint32_t get_schedular_ticks();
 	
 	/// Maximum number of tasks
     static constexpr size_t MaxTasks {16};

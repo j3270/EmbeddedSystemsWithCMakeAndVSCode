@@ -93,7 +93,4 @@
 // From module: SYSTEM - Reset Management for SAM D20/D21/R21/D09/D10/D11/DA/HA
 #include <reset.h>
 
-// From module: USART - Serial interface- SAM implementation for devices with only USART
-#include <serial.h>
-
 #endif // ASF_H

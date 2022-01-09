@@ -9,7 +9,8 @@
 			"samd10.h": "c",
 			"samd10c14a.h": "c",
 			"samd21g15b.h": "c",
-			"task_schedular.h": "c"
+			"task_schedular.h": "c",
+			"delay.h": "c"
 		}
 	}
 }
