@@ -1,8 +1,8 @@
 
 #include <array>
+#include <cstdio>
 #include "asf.h"
 #include "tasks.h"
-#include "SEGGER_RTT.h"
 
 /** Configure LED0, turn it off*/
 static void config_led(void)
@@ -13,6 +13,19 @@ static void config_led(void)
 	pin_conf.direction  = PORT_PIN_DIR_OUTPUT;
 	port_pin_set_config(PIN_PA09, &pin_conf);
 	port_pin_set_output_level(PIN_PA09, false);
+}
+
+static struct usart_module cdc_uart_module;
+static void configure_console(void)
+{
+	struct usart_config usart_conf;
+
+	//8N1 9600 PA05 is Rx and PA08 is Tx on SAMD10C14
+	//8N1 9600 PA05 is Rx and PA06 is Tx on SAMD21G15B
+	usart_get_config_defaults(&usart_conf);
+	usart_conf.baudrate = 115200;
+	stdio_serial_init(&cdc_uart_module, SERCOM0, &usart_conf);
+	usart_enable(&cdc_uart_module);
 }
 
 static struct adc_module adc_instance;
@@ -39,6 +52,7 @@ void init_app()
 {
 	system_init();
 	config_led();
+	configure_console();
 	configure_adc();
 	
 	//Systick of 50us
@@ -77,6 +91,7 @@ void read_pot()
 
 void set_servo_position()
 {
+	static uint32_t run_time {0};
 	uint32_t servo_position {(filtered_adc_result*100)/4095UL};
 
 	//Upper Hysteresis
@@ -84,5 +99,8 @@ void set_servo_position()
 	//Lower Hysteresis
 	servo_position = (servo_position < 5) ? 0 : servo_position;
 
-	SEGGER_RTT_printf(0, "Servo Position: %u%%\r\n", servo_position);
+	printf("Run Time: %lums\r\n", run_time);
+	printf("Servo Position: %lu%%\r\n\r\n", servo_position);
+	
+	run_time += 20;
 }

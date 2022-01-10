@@ -1,4 +1,5 @@
 
+#include <cstdio>
 #include "asf.h"
 
 /** Configure LED0, turn it off*/
@@ -20,7 +21,7 @@ static void configure_console(void)
 	//8N1 9600 PA05 is Rx and PA08 is Tx on SAMD10C14
 	//8N1 9600 PA05 is Rx and PA06 is Tx on SAMD21G15B
 	usart_get_config_defaults(&usart_conf);
-	usart_serial_init(&cdc_uart_module, SERCOM0, &usart_conf);
+	stdio_serial_init(&cdc_uart_module, SERCOM0, &usart_conf);
 	usart_enable(&cdc_uart_module);
 }
 
@@ -31,10 +32,7 @@ int main(void)
 	configure_console();
 	config_led();
 
-	const uint8_t hellow_world[] {"Hello World\r\n"};
-	size_t hello_world_len {sizeof(hellow_world)/sizeof(hellow_world[0])};
-
-	usart_serial_write_packet(&cdc_uart_module, hellow_world, hello_world_len);
+	printf("Hello World!\r\n");
 
 	uint8_t my_char {0};
 

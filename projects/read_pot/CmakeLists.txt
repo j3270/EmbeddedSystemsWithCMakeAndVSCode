@@ -10,28 +10,28 @@ set(SOURCES
         ../../projects/read_pot/tasks.cpp
         ../../projects/read_pot/cmsis/source/gcc/startup_samd21.c
         ../../projects/read_pot/cmsis/source/gcc/system_samd21.c
-        ../../tools/SEGGER_RTT_V754b/RTT/SEGGER_RTT_printf.c
-        ../../tools/SEGGER_RTT_V754b/RTT/SEGGER_RTT.c
-        ../../tools/SEGGER_RTT_V754b/Syscalls/SEGGER_RTT_Syscalls_GCC.c
-        ../../tools/SEGGER_RTT_V754b/Syscalls/SEGGER_RTT_Syscalls_SES.c
         ../../xdk-asf-3.51.0/common/utils/interrupt/interrupt_sam_nvic.c
         ../../xdk-asf-3.51.0/common2/services/delay/sam0/systick_counter.c
         ../../xdk-asf-3.51.0/sam0/drivers/adc/adc_sam_d_r_h/adc.c
         ../../xdk-asf-3.51.0/sam0/drivers/port/port.c
+        ../../xdk-asf-3.51.0/sam0/drivers/sercom/sercom.c
+        ../../xdk-asf-3.51.0/sam0/drivers/sercom/usart/usart.c
         ../../xdk-asf-3.51.0/sam0/drivers/system/system.c
         ../../xdk-asf-3.51.0/sam0/drivers/system/pinmux/pinmux.c
         ../../xdk-asf-3.51.0/sam0/drivers/system/interrupt/system_interrupt.c
         ../../xdk-asf-3.51.0/sam0/drivers/system/clock/clock_samd21_r21_da_ha1/clock.c
         ../../xdk-asf-3.51.0/sam0/drivers/system/clock/clock_samd21_r21_da_ha1/gclk.c
+        ../../xdk-asf-3.51.0/sam0/utils/stdio/read.c
+        ../../xdk-asf-3.51.0/sam0/utils/stdio/write.c
+        ../../xdk-asf-3.51.0/sam0/utils/syscalls/gcc/syscalls.c
 )
 
 set(INCLUDE_DIRS 
         ../../CoOp_Schedular
         ../../projects/read_pot
         ../../projects/read_pot/cmsis/include
-        ../../tools/SEGGER_RTT_V754b/Config
-        ../../tools/SEGGER_RTT_V754b/RTT
         ../../xdk-asf-3.51.0/common/boards
+        ../../xdk-asf-3.51.0/common/services/serial
         ../../xdk-asf-3.51.0/common/utils
         ../../xdk-asf-3.51.0/common/utils/interrupt
         ../../xdk-asf-3.51.0/common2/services/delay
@@ -40,6 +40,8 @@ set(INCLUDE_DIRS
         ../../xdk-asf-3.51.0/sam0/drivers/adc
         ../../xdk-asf-3.51.0/sam0/drivers/adc/adc_sam_d_r_h
         ../../xdk-asf-3.51.0/sam0/drivers/port
+        ../../xdk-asf-3.51.0/sam0/drivers/sercom
+        ../../xdk-asf-3.51.0/sam0/drivers/sercom/usart
         ../../xdk-asf-3.51.0/sam0/drivers/system
         ../../xdk-asf-3.51.0/sam0/drivers/system/clock
         ../../xdk-asf-3.51.0/sam0/drivers/system/clock/clock_samd21_r21_da_ha1
@@ -56,6 +58,7 @@ set(INCLUDE_DIRS
         ../../xdk-asf-3.51.0/sam0/utils/cmsis/samd21/include/pio
         ../../xdk-asf-3.51.0/sam0/utils/header_files
         ../../xdk-asf-3.51.0/sam0/utils/preprocessor
+        ../../xdk-asf-3.51.0/sam0/utils/stdio/stdio_serial
         ../../xdk-asf-3.51.0/thirdparty/CMSIS/Include
         ../../xdk-asf-3.51.0/thirdparty/CMSIS/Lib/GCC 
 )
