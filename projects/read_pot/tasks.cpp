@@ -38,6 +38,26 @@ static void configure_adc(void)
 	adc_enable(&adc_instance);
 }
 
+static struct tc_module tc_instance;
+static void configure_tc(void)
+{
+	
+	struct tc_config config_tc;
+
+	tc_get_config_defaults(&config_tc);
+
+	config_tc.counter_size    = TC_COUNTER_SIZE_16BIT;
+	config_tc.wave_generation = TC_WAVE_GENERATION_NORMAL_PWM;
+	config_tc.clock_prescaler = TC_CLOCK_PRESCALER_DIV2;
+	
+	config_tc.pwm_channel[0].enabled = true;
+	config_tc.pwm_channel[0].pin_out = PIN_PA18E_TC3_WO0;
+	config_tc.pwm_channel[0].pin_mux = MUX_PA18E_TC3_WO0;
+
+	tc_init(&tc_instance, TC3, &config_tc);
+	tc_enable(&tc_instance);
+}
+
 uint32_t get_schedular_ticks_from_ms(uint32_t milli_seconds)
 {
 	return (milli_seconds * 20);
@@ -54,6 +74,7 @@ void init_app()
 	config_led();
 	configure_console();
 	configure_adc();
+	configure_tc();
 	
 	//Systick of 50us
 	SysTick_Config(system_gclk_gen_get_hz(0)/20000);
@@ -91,7 +112,6 @@ void read_pot()
 
 void set_servo_position()
 {
-	static uint32_t run_time {0};
 	uint32_t servo_position {(filtered_adc_result*100)/4095UL};
 
 	//Upper Hysteresis
@@ -99,8 +119,11 @@ void set_servo_position()
 	//Lower Hysteresis
 	servo_position = (servo_position < 5) ? 0 : servo_position;
 
-	printf("Run Time: %lums\r\n", run_time);
-	printf("Servo Position: %lu%%\r\n\r\n", servo_position);
+	uint32_t compare_value {(80 * servo_position) + 2000};
+
+	tc_set_compare_value(&tc_instance, TC_COMPARE_CAPTURE_CHANNEL_0, compare_value);
+
 	
-	run_time += 20;
+	printf("TC Compare Value: %lu\r\n", compare_value);
+	printf("Servo Position: %lu%%\r\n\r\n", servo_position);
 }

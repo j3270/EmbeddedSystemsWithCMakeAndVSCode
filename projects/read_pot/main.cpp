@@ -15,7 +15,7 @@ int main(void)
     CoOpSchedular::Task task2("read_pot", get_schedular_ticks_from_ms(5), read_pot);
     schedular.add_task(task2);
 
-    CoOpSchedular::Task task3("set_servo_position", get_schedular_ticks_from_ms(20), set_servo_position);
+    CoOpSchedular::Task task3("set_servo_position", get_schedular_ticks_from_ms(50), set_servo_position);
     schedular.add_task(task3);
 
     while(1)

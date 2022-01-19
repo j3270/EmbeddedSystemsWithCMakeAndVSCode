@@ -99,4 +99,7 @@
 // From module: USART - Serial interface- SAM implementation for devices with only USART
 #include <serial.h>
 
+// From module: TC - Timer Counter (Polled APIs)
+#include <tc.h>
+
 #endif // ASF_H
