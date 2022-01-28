@@ -23,10 +23,10 @@ void OnProjectLoad (void) {
   // Dialog-generated settings
   //
   Project.SetHostIF ("USB", "");
-  Project.SetDevice ("ATSAMD21G15");
+  Project.SetDevice ("ATSAMD21J18");
   Project.SetTargetIF ("SWD");
   Project.SetTIFSpeed ("4 MHz");
-  Project.AddSvdFile ("$(ProjectDir)/../../svd/ATSAMD21G15B.svd");
+  Project.AddSvdFile ("$(ProjectDir)/../../svd/ATSAMD21J18A.svd");
   //
   // User settings
   //
