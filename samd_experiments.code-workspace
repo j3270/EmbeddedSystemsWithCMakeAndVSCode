@@ -11,7 +11,8 @@
 			"samd21g15b.h": "c",
 			"task_schedular.h": "c",
 			"delay.h": "c",
-			"tc.h": "c"
+			"tc.h": "c",
+			"string": "cpp"
 		}
 	}
 }
