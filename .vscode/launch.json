@@ -12,12 +12,12 @@
             "type": "cortex-debug",
             "servertype": "jlink",
             "armToolchainPath": "${env:GCC_INSTALL}/bin",
-            "device": "ATSAMD21G15",
+            "device": "ATSAMD21J18",
             "interface": "swd",
             "serialNumber": "", // add J-Link serial number if having multiple attached the same time.
             "runToMain": true,
             "breakAfterReset": true,
-            "svdFile": "${workspaceFolder}/svd/ATSAMD21G15B.svd",
+            "svdFile": "${workspaceFolder}/svd/ATSAMD21J18A.svd",
 
         },
         {
@@ -28,12 +28,12 @@
             "type": "cortex-debug",
             "servertype": "jlink",
             "armToolchainPath": "${env:GCC_INSTALL}/bin",
-            "device": "ATSAMD21G15",
+            "device": "ATSAMD21J18",
             "interface": "swd",
             "serialNumber": "", // add J-Link serial number if having multiple attached the same time.
             "runToMain": true,
             "breakAfterReset": true,
-            "svdFile": "${workspaceFolder}/svd/ATSAMD21G15B.svd",
+            "svdFile": "${workspaceFolder}/svd/ATSAMD21J18A.svd",
 
         },
         {
@@ -44,12 +44,12 @@
             "type": "cortex-debug",
             "servertype": "jlink",
             "armToolchainPath": "${env:GCC_INSTALL}/bin",
-            "device": "ATSAMD21G15",
+            "device": "ATSAMD21J18",
             "interface": "swd",
             "serialNumber": "", // add J-Link serial number if having multiple attached the same time.
             "runToMain": true,
             "breakAfterReset": true,
-            "svdFile": "${workspaceFolder}/svd/ATSAMD21G15B.svd",
+            "svdFile": "${workspaceFolder}/svd/ATSAMD21J18A.svd",
 
         },
         {
@@ -60,12 +60,12 @@
             "type": "cortex-debug",
             "servertype": "jlink",
             "armToolchainPath": "${env:GCC_INSTALL}/bin",
-            "device": "ATSAMD21G15",
+            "device": "ATSAMD21J18",
             "interface": "swd",
             "serialNumber": "", // add J-Link serial number if having multiple attached the same time.
             "runToMain": true,
             "breakAfterReset": true,
-            "svdFile": "${workspaceFolder}/svd/ATSAMD21G15B.svd",
+            "svdFile": "${workspaceFolder}/svd/ATSAMD21J18A.svd",
 
         }
     ]
