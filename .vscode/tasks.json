@@ -24,7 +24,7 @@
         "command": "${env:OZONE}",
         "label": "Ozone SeggerRttPrintfTest",
         "args": [
-            "-device ATSAMD21G15",
+            "-device ATSAMD21J18",
             "-if SWD",
             "-speed 4000",
             "-usb",
