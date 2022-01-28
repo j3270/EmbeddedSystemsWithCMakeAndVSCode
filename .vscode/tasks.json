@@ -40,7 +40,7 @@
         "command": "${env:OZONE}",
         "label": "Ozone helloworld",
         "args": [
-            "-device ATSAMD21G15",
+            "-device ATSAMD21J18",
             "-if SWD",
             "-speed 4000",
             "-usb",
@@ -56,7 +56,7 @@
         "command": "${env:OZONE}",
         "label": "Ozone read_pot",
         "args": [
-            "-device ATSAMD21G15",
+            "-device ATSAMD21J18",
             "-if SWD",
             "-speed 4000",
             "-usb",
