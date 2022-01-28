@@ -35,9 +35,9 @@ int main(void)
 		usart_serial_getchar(&cdc_uart_module, &my_char);
 		usart_serial_putchar(&cdc_uart_module, my_char);
 
-		port_pin_toggle_output_level(LED_0_PIN);
+		LED_Toggle(LED_0_PIN);
 		delay_ms(100);
-		port_pin_toggle_output_level(LED_0_PIN);
+		LED_Toggle(LED_0_PIN);
 	}
 }
 
