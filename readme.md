@@ -14,11 +14,6 @@ The purpose of this repo is for learning.  I am evaluating SAMD devices and usin
 I was looking for svd files, to use with Segger's Ozone debugger, which didn't appear to be part of the xdk download.  I found them here  
 [SVD Files](http://packs.download.atmel.com/)
 
-I am currently using the following evaluation boards for developemnt along with a couple of devices on surf boards with a breadboard.
-
-1. [samd10_xplained_mini](https://www.microchip.com/en-us/development-tool/ATSAMD10-XMINI)
-2. [saml21_xplained_pro](https://www.microchip.com/en-us/development-tool/atsamd21-xpro)
-
 # Repository Structure
 
 - build (ignored)
@@ -27,9 +22,24 @@ I am currently using the following evaluation boards for developemnt along with 
 - tools
 - xdk-asf-3.51.0 (need to trim files not needed)
 
+# Boards
+
+I am currently using the following evaluation boards for developemnt.
+
+1. [saml21_xplained_pro](https://www.microchip.com/en-us/development-tool/atsamd21-xpro)  
+a. CMake arg for target is __SAMD21J18A__  
+b. J-Link arg for target is ATSAMD21J18  
+c. SVD file is ATSAMD21J18A.svd  
+2. [Adafruit Feather M0 Basic Proto](https://www.adafruit.com/product/2772?gclid=Cj0KCQiA6NOPBhCPARIsAHAy2zCJ24o8rdmKfSZByKKUvmDvdK_EmlqnPDycbiYHH-I0W7Z0hW63EnwaArjrEALw_wcB)  
+a. CMake arg for target is __SAMD21G18A__  
+b. J-Link arg for target is ATSAMD21G18  
+c. SVD file is ATSAMD21G18A.svd  
+
+I updated the EDBG firmware on the SAMD21_Xplained_pro evaluation board to Segger_OB firmware by following the instructions at this link, [Firmware for Atmel EDBG on Xplained Platforms](https://www.segger.com/products/debug-probes/j-link/models/other-j-links/j-link-edbg/).  This firmware makes the EDBG mcu J-Link compatiable with some limitations that are documented at the previous link.
+
 # Building Projects
 
-The workspace uses Cmake with Cmake tools for VS code to configure each projects build and Ninja as the build generator.  To build the projects you will need to install the following tools:
+The workspace uses Cmake with Cmake tools for VS code to configure the build for each project and Ninja as the build generator.  To build the projects you will need to install the following tools:
 
 1. [VS Code](https://code.visualstudio.com/) with the following extensions:  
 a. C/C++ Extension Pack  
