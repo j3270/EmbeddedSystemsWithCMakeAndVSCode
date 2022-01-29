@@ -26,7 +26,7 @@ I was looking for svd files, to use with Segger's Ozone debugger, which didn't a
 
 I am currently using the following evaluation boards for developemnt.
 
-1. [saml21_xplained_pro](https://www.microchip.com/en-us/development-tool/atsamd21-xpro)  
+1. [samd21_xplained_pro](https://www.microchip.com/en-us/development-tool/atsamd21-xpro)  
 a. CMake arg for target is __SAMD21J18A__  
 b. J-Link arg for target is ATSAMD21J18  
 c. SVD file is ATSAMD21J18A.svd  
