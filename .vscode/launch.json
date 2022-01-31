@@ -67,6 +67,22 @@
             "breakAfterReset": true,
             "svdFile": "${workspaceFolder}/svd/ATSAMD21J18A.svd",
 
+        },
+        {
+            "cwd": "${workspaceFolder}",
+            "executable": "./build/projects/i2c_devices_on_bus/i2c_devices_on_bus.elf",
+            "name": "Debug i2c_devices_on_bus",
+            "request": "launch",
+            "type": "cortex-debug",
+            "servertype": "jlink",
+            "armToolchainPath": "${env:GCC_INSTALL}/bin",
+            "device": "ATSAMD21J18",
+            "interface": "swd",
+            "serialNumber": "", // add J-Link serial number if having multiple attached the same time.
+            "runToMain": true,
+            "breakAfterReset": true,
+            "svdFile": "${workspaceFolder}/svd/ATSAMD21J18A.svd",
+
         }
     ]
 }

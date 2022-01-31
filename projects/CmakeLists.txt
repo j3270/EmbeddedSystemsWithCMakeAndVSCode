@@ -1,4 +1,4 @@
-
+add_subdirectory(i2c_devices_on_bus)
 add_subdirectory(read_pot)
 add_subdirectory(blinky)
 add_subdirectory(helloworld)
