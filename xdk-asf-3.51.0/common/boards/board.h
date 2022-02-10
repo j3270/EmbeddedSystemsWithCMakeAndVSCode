@@ -388,6 +388,8 @@ extern "C" {
 #elif BOARD == USER_BOARD
 // User-reserved area: #include the header file of your board here (if any).
 #  include "user_board.h"
+#elif BOARD == ADAFRUIT_FEATHER_M0_PROTO
+#  include "adafruit_feather_m0_proto.h"
 #elif BOARD == DUMMY_BOARD
 #  include "dummy_board.h"
 #elif BOARD == SAMB11ZR_SENSOR_TAG
