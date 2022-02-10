@@ -83,6 +83,22 @@
             "breakAfterReset": true,
             "svdFile": "${workspaceFolder}/svd/ATSAMD21J18A.svd",
 
+        },
+        {
+            "cwd": "${workspaceFolder}",
+            "executable": "./build/projects/rocketry_proto1/rocketry_proto1.elf",
+            "name": "Debug rocketry_proto1",
+            "request": "launch",
+            "type": "cortex-debug",
+            "servertype": "jlink",
+            "armToolchainPath": "${env:GCC_INSTALL}/bin",
+            "device": "ATSAMD21G18",
+            "interface": "swd",
+            "serialNumber": "", // add J-Link serial number if having multiple attached the same time.
+            "runToMain": true,
+            "breakAfterReset": true,
+            "svdFile": "${workspaceFolder}/svd/ATSAMD21G18A.svd",
+
         }
     ]
 }

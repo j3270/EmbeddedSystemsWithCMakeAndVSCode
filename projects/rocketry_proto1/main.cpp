@@ -9,7 +9,7 @@ int main(void)
 	while (true) 
 	{
 		 delay_ms(500);
-		LED_Toggle(LED_0_PIN);
+		 LED_Toggle(LED_0_PIN);
 	}
 }
 

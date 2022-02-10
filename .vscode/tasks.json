@@ -67,6 +67,22 @@
         ],
         "problemMatcher": []
       },
+      {
+        "type": "process",
+        "command": "${env:OZONE}",
+        "label": "Ozone rocketry_proto1",
+        "args": [
+            "-device ATSAMD21G18",
+            "-if SWD",
+            "-speed 4000",
+            "-usb",
+            "-project",
+            "${workspaceFolder}/projects/rocketry_proto1/rocketry_proto1.jdebug",
+            "-programfile",
+            "${workspaceFolder}/build/projects/rocketry_proto1/rocketry_proto1.elf"
+        ],
+        "problemMatcher": []
+      },
     ]
   }
   
