@@ -12,7 +12,9 @@
 			"task_schedular.h": "c",
 			"delay.h": "c",
 			"tc.h": "c",
-			"string": "cpp"
+			"string": "cpp",
+			"conf_board.h": "c",
+			"compiler.h": "c"
 		}
 	}
 }

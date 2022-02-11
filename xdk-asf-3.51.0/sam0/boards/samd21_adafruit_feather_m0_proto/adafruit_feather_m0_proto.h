@@ -31,8 +31,6 @@
 extern "C" {
 #endif
 
-void system_board_init(void);
-
 #define LED0_PIN                  PIN_PA17
 #define LED0_ACTIVE               true
 #define LED0_INACTIVE             !LED0_ACTIVE
@@ -45,6 +43,14 @@ void system_board_init(void);
 #define LED0                      LED0_PIN
 
 #define LED_COUNT                 1
+
+#define CONF_STDIO_USART_MODULE  SERCOM0
+#define CONF_STDIO_MUX_SETTING   USART_RX_3_TX_2_XCK_3
+#define CONF_STDIO_PINMUX_PAD0   PINMUX_UNUSED
+#define CONF_STDIO_PINMUX_PAD1   PINMUX_UNUSED
+#define CONF_STDIO_PINMUX_PAD2   PINMUX_PA10C_SERCOM0_PAD2
+#define CONF_STDIO_PINMUX_PAD3   PINMUX_PA11C_SERCOM0_PAD3
+#define CONF_STDIO_BAUDRATE      38400
 
 
 /**
@@ -73,6 +79,12 @@ void system_board_init(void);
  * \note The pins of the specified LEDs are set to GPIO output mode.
  */
 #define LED_Toggle(led_gpio)  port_pin_toggle_output_level(led_gpio)
+
+
+
+void system_board_init(void);
+
+struct usart_module* get_console_usart();
 
 #ifdef __cplusplus
 }
