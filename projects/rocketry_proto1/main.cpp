@@ -9,16 +9,14 @@ int main(void)
 
 	printf("Hello World!\r\n");
 
-	uint8_t my_char {0};
+	uint32_t battery_voltage {get_battery_voltage_x100()};
 
 	while (true) 
 	{
-		usart_serial_getchar(get_console_usart(), &my_char);
-		usart_serial_putchar(get_console_usart(), my_char);
-
 		LED_Toggle(LED_0_PIN);
-		delay_ms(100);
-		LED_Toggle(LED_0_PIN);
+		delay_ms(500);
+		battery_voltage = get_battery_voltage_x100();
+		printf("Battery Voltage: %lu\r\n", battery_voltage);	
 	}
 }
 

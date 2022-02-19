@@ -86,6 +86,8 @@ void system_board_init(void);
 
 struct usart_module* get_console_usart();
 
+uint32_t get_battery_voltage_x100();
+
 #ifdef __cplusplus
 }
 #endif

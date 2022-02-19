@@ -14,7 +14,8 @@
 			"tc.h": "c",
 			"string": "cpp",
 			"conf_board.h": "c",
-			"compiler.h": "c"
+			"compiler.h": "c",
+			"adc.h": "c"
 		}
 	}
 }

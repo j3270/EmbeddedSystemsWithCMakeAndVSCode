@@ -23,6 +23,7 @@
 ******************************************************************************/
 
 #include "compiler.h"
+#include "adc.h"
 #include "board.h"
 #include "conf_board.h"
 #include "port.h"
@@ -57,16 +58,46 @@ struct usart_module* get_console_usart()
 	return &console_usart_module;
 }
 
+static struct adc_module adc_instance;
+static void configure_adc(void)
+{
+	struct adc_config config_adc;
+	adc_get_config_defaults(&config_adc);
+	config_adc.reference = ADC_REFERENCE_INTVCC0; //3.3/1.48 ~ 2.2297V
+	config_adc.positive_input = ADC_POSITIVE_INPUT_PIN7;
+	adc_init(&adc_instance, ADC, &config_adc);
+	adc_enable(&adc_instance);
+}
+
+uint32_t get_battery_voltage_x100()
+{
+	const float ADC_REF = 3.3F/1.48F;
+	const float ARD_RES = 4096.0F;
+
+	uint16_t adc_result;
+
+	adc_start_conversion(&adc_instance);
+	while (adc_read(&adc_instance, &adc_result) == STATUS_BUSY);
+
+	float adc_result_x2 = adc_result * 2.0; //We divided battery voltage by two 
+	float battery_voltage = ADC_REF/ARD_RES * adc_result_x2;
+
+	uint32_t battery_voltage_x100 = (uint32_t) (battery_voltage * 100);
+
+	return battery_voltage_x100;
+}
+
 
 void system_board_init(void)
 {
     struct port_config pin_conf;
 	port_get_config_defaults(&pin_conf);
 
-	/* Configure LEDs as outputs, turn them off */
+	/* Configure LED as output, turn it off */
 	pin_conf.direction  = PORT_PIN_DIR_OUTPUT;
 	port_pin_set_config(LED_0_PIN, &pin_conf);
 	port_pin_set_output_level(LED_0_PIN, LED_0_INACTIVE);
 
 	configure_console_uart();
+	configure_adc();
 }
