@@ -1,9 +1,49 @@
+/******************************************************************************
+* MIT License
+* 
+* Copyright (c) 2021 Justin J. Jordan
+* 
+* Permission is hereby granted, free of charge, to any person obtaining a copy
+* of this software and associated documentation files (the "Software"), to deal
+* in the Software without restriction, including without limitation the rights
+* to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+* copies of the Software, and to permit persons to whom the Software is
+* furnished to do so, subject to the following conditions:
+* 
+* The above copyright notice and this permission notice shall be included in all
+* copies or substantial portions of the Software.
+* 
+* THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+* IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+* FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+* AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+* LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+* OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+* SOFTWARE.
+******************************************************************************/
 
 #include <array>
 #include "asf.h"
 #include "stdio_serial.h"
 #include "conf_uart_serial.h"
 #include "tasks.h"
+
+volatile static uint32_t systick_ticks = 0;
+#ifdef __cplusplus
+  extern "C" {
+#endif
+void SysTick_Handler(void)
+{
+    systick_ticks++;
+}
+#ifdef __cplusplus
+}
+#endif
+
+uint32_t get_sys_ticks()
+{
+    return systick_ticks;
+}
 
 static struct usart_module cdc_uart_module;
 static void configure_console(void)
@@ -53,14 +93,26 @@ static void configure_tc(void)
 	tc_enable(&tc_instance);
 }
 
+static constexpr uint32_t schedular_frequency_hz { 20000 };
+static constexpr float schedular_period { 1.0f/schedular_frequency_hz };
+static constexpr uint32_t min_milli_seconds_for_schedular_tic {static_cast<uint32_t>(schedular_period * 1000 )};
+static constexpr uint32_t min_micro_seconds_for_schedular_tic {static_cast<uint32_t>(schedular_period * 1000000 )};
+static_assert(min_micro_seconds_for_schedular_tic > 0, "Less than one micro second in schedular tic!");
+
 uint32_t get_schedular_ticks_from_ms(uint32_t milli_seconds)
 {
-	return (milli_seconds * 20);
+	uint32_t schedular_tics_in_x_ms {0};
+
+	schedular_tics_in_x_ms = (min_milli_seconds_for_schedular_tic == 0) ? 
+		get_schedular_ticks_from_us(milli_seconds * 1000) : 
+		(milli_seconds / min_milli_seconds_for_schedular_tic);
+
+	return schedular_tics_in_x_ms;
 }
 
 uint32_t get_schedular_ticks_from_us(uint32_t micro_seconds)
 {
-	return micro_seconds/50;
+	return micro_seconds / min_micro_seconds_for_schedular_tic;
 }
 
 void init_app()
@@ -71,7 +123,7 @@ void init_app()
 	configure_tc();
 	
 	//Systick of 50us
-	SysTick_Config(system_gclk_gen_get_hz(0)/20000);
+	SysTick_Config(system_gclk_gen_get_hz(0)/schedular_frequency_hz);
 	NVIC_EnableIRQ(SysTick_IRQn);		// Enable SysTick Interrupt
 }
 
