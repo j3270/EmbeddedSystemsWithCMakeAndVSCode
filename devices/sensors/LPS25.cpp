@@ -33,10 +33,30 @@ namespace Sensors {
     
     bool LPS25::init(Config& config, Interface& interface, size_t idx)
     {
-
+        return false;
     }
     
     float LPS25::get_data()
+    {
+        return 0.0f;
+    }
+
+    void LPS25::write_register(Registers register, uint8_t data)
+    {
+
+    }
+
+    uint8_t LPS25::read_register(Registers register)
+    {
+        return 0;
+    }
+
+    void LPS25::write_block(Registers start_register, std::array<uint8_t>& data)
+    {
+
+    }
+
+    void LPS25::read_block(Registers start_register, std::array<uint8_t>& data)
     {
 
     }

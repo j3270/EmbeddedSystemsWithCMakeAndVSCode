@@ -24,7 +24,8 @@
 
 #pragma once
 #include <cstdint>
-#include "IPressure.h"
+#include <array>
+#include "ISensor.h"
 
 namespace Sensors {
     class LPS25 : public ISensor {
@@ -219,5 +220,37 @@ namespace Sensors {
         private:
 
         Config m_config;
+
+        /**
+         * @brief 
+         * 
+         * @param register 
+         * @param data 
+         */
+        void write_register(Registers register, uint8_t data);
+
+        /**
+         * @brief 
+         * 
+         * @param register 
+         * @return uint8_t 
+         */
+        uint8_t read_register(Registers register);
+
+        /**
+         * @brief 
+         * 
+         * @param start_register 
+         * @param data 
+         */
+        void write_block(Registers start_register, std::array<uint8_t>& data);
+
+        /**
+         * @brief 
+         * 
+         * @param start_register 
+         * @param data 
+         */
+        void read_block(Registers start_register, std::array<uint8_t>& data);
     };
 }
