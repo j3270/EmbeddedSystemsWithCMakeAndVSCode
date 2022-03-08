@@ -50,7 +50,7 @@ namespace Sensors {
         /**
          * @brief Get current pressure reading
          * 
-         * @return float current pressure
+         * @return float current pressure in Pa
          */
         virtual float get_pressure() = 0;
 
