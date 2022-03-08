@@ -27,10 +27,22 @@
 namespace Sensors {
 
     /**
-     * @brief Interface class for a pressure sensor
+     * @brief Type of sensor; analog or digital
      * 
      */
-    class IPressure {
+    enum class Interface
+    {
+        Analog = 0,
+        SPI,
+        I2C,
+        UART
+    };
+
+    /**
+     * @brief Interface class for a sensor
+     * 
+     */
+    class ISensor {
         
         public:
 
@@ -41,23 +53,32 @@ namespace Sensors {
         struct Config;
 
         /**
-         * @brief Initialize the sensor with the given configuration
+         * @brief Get the default config object
          * 
-         * @param config Sensor configuration
+         * @return Config 
          */
-        virtual void init(Config& config) = 0;
+        virtual Config get_default_config() = 0;
 
         /**
-         * @brief Get current pressure reading
+         * @brief 
          * 
-         * @return float current pressure in Pa
+         * @param config 
+         * @param interface 
+         * @param idx 
          */
-        virtual float get_pressure() = 0;
+        virtual bool init(Config& config, Interface& interface, size_t idx) = 0;
 
         /**
-         * @brief Destroy the IPressure object
+         * @brief Get the data object
+         * 
+         * @return float 
+         */
+        virtual float get_data() = 0;
+
+        /**
+         * @brief Destroy the ISensor object
          * 
          */
-        virtual ~IPressure(){}
+        virtual ~ISensor(){}
     };
 }
