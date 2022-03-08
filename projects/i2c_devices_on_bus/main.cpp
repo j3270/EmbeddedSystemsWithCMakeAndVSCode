@@ -68,6 +68,10 @@ int main(void)
 		delay_ms(100);
 	}
 
-	while (true);
+	while (true)
+	{
+		LED_Toggle(LED_0_PIN);
+		delay_ms(100);
+	}
 }
 
