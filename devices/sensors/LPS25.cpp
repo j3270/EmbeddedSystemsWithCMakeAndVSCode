@@ -26,14 +26,27 @@
 
 namespace Sensors {
     
-    LPS25::Config get_default_config()
+    bool LPS25::init(Sensors::Interface& interface, size_t idx)
     {
+        bool initialized {false};
+        m_interface = interface;
 
-    }
-    
-    bool LPS25::init(Config& config, Interface& interface, size_t idx)
-    {
-        return false;
+        switch(m_interface)
+        {
+            case Sensors::Interface::I2C:
+                //initialized = get_i2c_bus(idx, serial);
+            break;
+
+            case Sensors::Interface::SPI:
+                //initialized = get_spi_bus(idx, serial);
+            break;
+
+            default:
+                initialized = false;
+            break;
+        }
+
+        return initialized;
     }
     
     float LPS25::get_data()
@@ -41,23 +54,65 @@ namespace Sensors {
         return 0.0f;
     }
 
+    LPS25::Config get_default_config()
+    {
+        LPS25::Config config;
+
+        return config;
+    }
+
+    void LPS25::set_config(LPS25::Config& config)
+    {
+        m_config = config;
+    }
+
     void LPS25::write_register(Registers register, uint8_t data)
     {
+        if(m_interface == Sensors::Interface::I2C)
+        {
 
+        }
+        else
+        {
+
+        }
     }
 
     uint8_t LPS25::read_register(Registers register)
     {
+        if(m_interface == Sensors::Interface::I2C)
+        {
+
+        }
+        else
+        {
+            
+        }
+
         return 0;
     }
 
-    void LPS25::write_block(Registers start_register, std::array<uint8_t>& data)
+    void LPS25::write_block(Registers start_register, uint8_t * data)
     {
+        if(m_interface == Sensors::Interface::I2C)
+        {
 
+        }
+        else
+        {
+            
+        }
     }
 
-    void LPS25::read_block(Registers start_register, std::array<uint8_t>& data)
+    void LPS25::read_block(Registers start_register, uint8_t * data)
     {
+        if(m_interface == Sensors::Interface::I2C)
+        {
 
+        }
+        else
+        {
+            
+        }
     }
 }

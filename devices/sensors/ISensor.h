@@ -23,6 +23,7 @@
 ******************************************************************************/
 
 #pragma once
+#include <cstdlib>
 
 namespace Sensors {
 
@@ -47,26 +48,13 @@ namespace Sensors {
         public:
 
         /**
-         * @brief Sensor configuration to be defined by concrete class
-         * 
-         */
-        struct Config;
-
-        /**
-         * @brief Get the default config object
-         * 
-         * @return Config 
-         */
-        virtual Config get_default_config() = 0;
-
-        /**
          * @brief 
          * 
          * @param config 
          * @param interface 
          * @param idx 
          */
-        virtual bool init(Config& config, Interface& interface, size_t idx) = 0;
+        virtual bool init(Interface& interface, size_t idx) = 0;
 
         /**
          * @brief Get the data object

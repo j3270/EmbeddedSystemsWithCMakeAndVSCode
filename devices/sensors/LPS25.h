@@ -24,15 +24,14 @@
 
 #pragma once
 #include <cstdint>
-#include <array>
+#include "asf.h"
 #include "ISensor.h"
-
 namespace Sensors {
     class LPS25 : public ISensor {
 
         public:
 
-        static constexpr who_am_i {0xBD};
+        static constexpr uint8_t who_am_i {0xBD};
 
         enum class Registers : uint8_t
         {
@@ -139,7 +138,7 @@ namespace Sensors {
                 uint8_t lir : 1;
                 uint8_t reserved : 5;
             }fields;
-        }
+        };
         
         union InterruptSource {
             uint8_t whole;
@@ -184,7 +183,7 @@ namespace Sensors {
         struct Config {
             ResolutionConfig res_config;
             ControlConfig ctrl_config;
-            InterruptConfig int_config
+            InterruptConfig int_config;
             FIFO_Config fifo_config;
         };
 
@@ -195,31 +194,40 @@ namespace Sensors {
         LPS25() = default;
 
         /**
-         * @brief Get the default config object
-         * 
-         * @return Config 
-         */
-        Config get_default_config() final;
-
-        /**
          * @brief 
          * 
          * @param config 
          * @param interface 
          * @param idx 
          */
-        bool init(Config& config, Interface& interface, size_t idx) final;
+        bool init(Sensors::Interface& interface, size_t idx) final;
 
         /**
          * @brief Get current pressure reading
          * 
          * @return float current pressure in Pa
          */
-        float get_pressure() final;
+        float get_data() final;
+
+        /**
+         * @brief Get the default config object
+         * 
+         * @return Config 
+         */
+        Config get_default_config();
+
+        /**
+         * @brief Set the config object
+         * 
+         * @param config 
+         */
+        void set_config(Config& config);
 
         private:
 
+        Sensors::Interface m_interface;
         Config m_config;
+        Sercom * const serial;
 
         /**
          * @brief 
@@ -243,7 +251,7 @@ namespace Sensors {
          * @param start_register 
          * @param data 
          */
-        void write_block(Registers start_register, std::array<uint8_t>& data);
+        void write_block(Registers start_register, uint8_t * data);
 
         /**
          * @brief 
@@ -251,6 +259,6 @@ namespace Sensors {
          * @param start_register 
          * @param data 
          */
-        void read_block(Registers start_register, std::array<uint8_t>& data);
+        void read_block(Registers start_register, uint8_t * data);
     };
 }

@@ -5,6 +5,7 @@ set(ASSEMBLY_FILES
 )
 
 set(SOURCES 
+        ../../devices/sensors/LPS25.cpp
         ../../projects/rocketry_proto1/main.cpp
         ../../projects/rocketry_proto1/cmsis/source/gcc/startup_samd21.c
         ../../projects/rocketry_proto1/cmsis/source/gcc/system_samd21.c
@@ -27,6 +28,7 @@ set(SOURCES
 )
 
 set(INCLUDE_DIRS 
+        ../../devices/sensors
         ../../projects/rocketry_proto1
         ../../projects/rocketry_proto1/cmsis/include
         ../../xdk-asf-3.51.0/common/boards
