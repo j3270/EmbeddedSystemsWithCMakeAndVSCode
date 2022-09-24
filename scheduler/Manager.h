@@ -29,8 +29,8 @@
 #include <array>
 
 
-/// Simple cooperative scheduler
-namespace Schedular
+/// Simple cooperative Scheduler
+namespace Scheduler
 {
     class Task;
 
@@ -45,12 +45,12 @@ namespace Schedular
 			/**
 			* @brief Manager constructor
 			*
-			* @param[in] get_ticks - function pointer for getting scheduler ticks
+			* @param[in] get_ticks - function pointer for getting Scheduler ticks
 			*/
             explicit Manager(uint32_t (*get_ticks)(void));
 
 			/**
-			* @brief Adds task to scheduler
+			* @brief Adds task to Scheduler
 			*
 			* @param[in] task - task to add
 			*
@@ -58,7 +58,7 @@ namespace Schedular
             void add_task(Task& task);
 
 			/**
-			* @brief Runs scheduler
+			* @brief Runs Scheduler
 			*/
             void run();
 
@@ -69,4 +69,4 @@ namespace Schedular
             uint32_t (*get_ticks)(void);
     };
 
-}; //namespace Schedular
+}; //namespace Scheduler

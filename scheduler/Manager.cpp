@@ -26,7 +26,7 @@
 #include "Manager.h"
 #include "Task.h"
 
-namespace Schedular
+namespace Scheduler
 {
     Manager::Manager(uint32_t (*get_ticks)(void)):
     get_ticks(get_ticks)
@@ -65,4 +65,4 @@ namespace Schedular
             }
         }
     }
-} //namespace Schedular
+} //namespace Scheduler

@@ -27,8 +27,8 @@
 #include <string>
 #include <cstdint>
 
-/// Simple cooperative scheduler
-namespace Schedular
+/// Simple cooperative Scheduler
+namespace Scheduler
 {
     /// Class for creating a task
     class Task
@@ -68,7 +68,7 @@ namespace Schedular
 			*
 			* @param[in] name - sting object name of task
 			* @param[in] interval - interval at which task should be run in
-			* terms of scheduler ticks
+			* terms of Scheduler ticks
 			* @param[in] execute - pointer to function implementing task
 			*/
             Task(std::string& name, uint32_t interval, void(*execute)());
@@ -78,7 +78,7 @@ namespace Schedular
 			*
 			* @param[in] name - C string name of task
 			* @param[in] interval - interval at which task should be run in
-			* terms of scheduler ticks
+			* terms of Scheduler ticks
 			* @param[in] execute - pointer to function implementing task
 			*/
             Task(const char *  name, uint32_t interval, void(*execute)());
@@ -93,7 +93,7 @@ namespace Schedular
 			/**
 			* @brief Runs task execute function
 			*
-			* @param[in] start_tick - scheduler tick at which task was started
+			* @param[in] start_tick - Scheduler tick at which task was started
 			*
 			* @return status of task
 			*/
@@ -103,4 +103,4 @@ namespace Schedular
             std::string name;
             Config config;
     };
-}//namespace Schedular
+}//namespace Scheduler

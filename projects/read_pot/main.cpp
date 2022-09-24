@@ -30,21 +30,21 @@ int main(void)
 {
     init_app();
 
-	// Create task schedular and add tasks
-    Schedular::Manager schedular(get_sys_ticks);
+	// Create task scheduler and add tasks
+    Scheduler::Manager scheduler(get_sys_ticks);
     
     // Setup application task main_task
-    Schedular::Task task1("toggle_led", get_schedular_ticks_from_ms(100), toggle_led);
-    schedular.add_task(task1);
+    Scheduler::Task task1("toggle_led", get_scheduler_ticks_from_ms(100), toggle_led);
+    scheduler.add_task(task1);
 
-    Schedular::Task task2("read_pot", get_schedular_ticks_from_ms(5), read_pot);
-    schedular.add_task(task2);
+    Scheduler::Task task2("read_pot", get_scheduler_ticks_from_ms(5), read_pot);
+    scheduler.add_task(task2);
 
-    Schedular::Task task3("set_servo_position", get_schedular_ticks_from_ms(50), set_servo_position);
-    schedular.add_task(task3);
+    Scheduler::Task task3("set_servo_position", get_scheduler_ticks_from_ms(50), set_servo_position);
+    scheduler.add_task(task3);
 
     while(1)
     {
-        schedular.run();
+        scheduler.run();
     } 
 }

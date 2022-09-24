@@ -93,26 +93,26 @@ static void configure_tc(void)
 	tc_enable(&tc_instance);
 }
 
-static constexpr uint32_t schedular_frequency_hz { 20000 };
-static constexpr float schedular_period { 1.0f/schedular_frequency_hz };
-static constexpr uint32_t min_milli_seconds_for_schedular_tic {static_cast<uint32_t>(schedular_period * 1000 )};
-static constexpr uint32_t min_micro_seconds_for_schedular_tic {static_cast<uint32_t>(schedular_period * 1000000 )};
-static_assert(min_micro_seconds_for_schedular_tic > 0, "Less than one micro second in schedular tic!");
+static constexpr uint32_t scheduler_frequency_hz { 20000 };
+static constexpr float scheduler_period { 1.0f/scheduler_frequency_hz };
+static constexpr uint32_t min_milli_seconds_for_scheduler_tic {static_cast<uint32_t>(scheduler_period * 1000 )};
+static constexpr uint32_t min_micro_seconds_for_scheduler_tic {static_cast<uint32_t>(scheduler_period * 1000000 )};
+static_assert(min_micro_seconds_for_scheduler_tic > 0, "Less than one micro second in scheduler tic!");
 
-uint32_t get_schedular_ticks_from_ms(uint32_t milli_seconds)
+uint32_t get_scheduler_ticks_from_ms(uint32_t milli_seconds)
 {
-	uint32_t schedular_tics_in_x_ms {0};
+	uint32_t scheduler_tics_in_x_ms {0};
 
-	schedular_tics_in_x_ms = (min_milli_seconds_for_schedular_tic == 0) ? 
-		get_schedular_ticks_from_us(milli_seconds * 1000) : 
-		(milli_seconds / min_milli_seconds_for_schedular_tic);
+	scheduler_tics_in_x_ms = (min_milli_seconds_for_scheduler_tic == 0) ? 
+		get_scheduler_ticks_from_us(milli_seconds * 1000) : 
+		(milli_seconds / min_milli_seconds_for_scheduler_tic);
 
-	return schedular_tics_in_x_ms;
+	return scheduler_tics_in_x_ms;
 }
 
-uint32_t get_schedular_ticks_from_us(uint32_t micro_seconds)
+uint32_t get_scheduler_ticks_from_us(uint32_t micro_seconds)
 {
-	return micro_seconds / min_micro_seconds_for_schedular_tic;
+	return micro_seconds / min_micro_seconds_for_scheduler_tic;
 }
 
 void init_app()
@@ -123,7 +123,7 @@ void init_app()
 	configure_tc();
 	
 	//Systick of 50us
-	SysTick_Config(system_gclk_gen_get_hz(0)/schedular_frequency_hz);
+	SysTick_Config(system_gclk_gen_get_hz(0)/scheduler_frequency_hz);
 	NVIC_EnableIRQ(SysTick_IRQn);		// Enable SysTick Interrupt
 }
 

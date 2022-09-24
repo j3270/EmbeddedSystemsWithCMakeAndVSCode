@@ -23,7 +23,7 @@
 ******************************************************************************/
 #include "Task.h"
 
-namespace Schedular
+namespace Scheduler
 {
     Task::Task(std::string& name, uint32_t interval, void(*execute)()):
     name(name)
@@ -70,4 +70,4 @@ namespace Schedular
 
         return status;
     }
-}//namespace Schedular
+}//namespace Scheduler

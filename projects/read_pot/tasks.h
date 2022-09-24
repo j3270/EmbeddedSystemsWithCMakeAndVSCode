@@ -25,8 +25,8 @@
 #pragma once
 
 uint32_t get_sys_ticks();
-uint32_t get_schedular_ticks_from_ms(uint32_t milli_seconds);
-uint32_t get_schedular_ticks_from_us(uint32_t micro_seconds);
+uint32_t get_scheduler_ticks_from_ms(uint32_t milli_seconds);
+uint32_t get_scheduler_ticks_from_us(uint32_t micro_seconds);
 void init_app();
 void toggle_led();
 void read_pot();
