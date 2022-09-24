@@ -29,7 +29,7 @@ int main(void)
 {
     constexpr uint32_t Four_Hz {4};
     constexpr uint32_t Ten_Hz {10};
-    constexpr uint32_t Twenty_Hz {20};
+    constexpr uint32_t Seventy_Hz {70};
     constexpr uint32_t Two_Hundred_Hz {200};
     constexpr uint32_t One_Hundred_KHz {100000};
 
@@ -46,7 +46,7 @@ int main(void)
     Scheduler::Task task2(Scheduler::tics_from_frequency(Two_Hundred_Hz), read_pot);
     scheduler.add_task(&task2);
 
-    Scheduler::Task task3(Scheduler::tics_from_frequency(Twenty_Hz), set_servo_position);
+    Scheduler::Task task3(Scheduler::tics_from_frequency(Seventy_Hz), set_servo_position);
     scheduler.add_task(&task3);
 
     Scheduler::Task task4(Scheduler::tics_from_frequency(Four_Hz), display_data);
