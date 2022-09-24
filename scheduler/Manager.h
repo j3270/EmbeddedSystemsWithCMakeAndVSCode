@@ -32,41 +32,41 @@
 /// Simple cooperative Scheduler
 namespace Scheduler
 {
-    class Task;
+class Task;
 
-    /// Class for scheduling tasks
-    class Manager
-    {
-        public:
+/// Class for scheduling tasks
+class Manager
+{
+public:
 
-            /// Maximum number of tasks
-            static constexpr size_t max_tasks {16};
+    /// Maximum number of tasks
+    static constexpr size_t max_tasks {16};
 
-			/**
-			* @brief Manager constructor
-			*
-			* @param[in] get_ticks - function pointer for getting Scheduler ticks
-			*/
-            explicit Manager(uint32_t (*get_ticks)(void));
+    /**
+    * @brief Manager constructor
+    *
+    * @param[in] get_ticks - function pointer for getting Scheduler ticks
+    */
+    explicit Manager(uint32_t (*get_ticks)(void));
 
-			/**
-			* @brief Adds task to Scheduler
-			*
-			* @param[in] task - task to add
-			*
-			* @return none*/
-            void add_task(Task& task);
+    /**
+    * @brief Adds task to Scheduler
+    *
+    * @param[in] task - task to add
+    *
+    * @return none*/
+    void add_task(Task* task);
 
-			/**
-			* @brief Runs Scheduler
-			*/
-            void run();
+    /**
+    * @brief Runs Scheduler
+    */
+    void run();
 
-        private:
+private:
 
-            size_t num_tasks {0};
-            std::array<Task*, max_tasks> tasks;
-            uint32_t (*get_ticks)(void);
-    };
+    size_t num_tasks {0};
+    std::array<Task*, max_tasks> tasks;
+    uint32_t (*get_ticks)(void);
+};
 
 }; //namespace Scheduler

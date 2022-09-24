@@ -30,77 +30,62 @@
 /// Simple cooperative Scheduler
 namespace Scheduler
 {
-    /// Class for creating a task
-    class Task
+/// Class for creating a task
+class Task
+{
+public:
+
+    /// Configuration of task
+    struct Config
     {
-        public:
-
-            /// Maximum length of task name
-            static constexpr uint32_t max_task_name_length {32};
-
-			/// Configuration of task
-            struct Config
-            {
-                uint32_t startTick;
-                uint32_t stopTick;
-                uint32_t lastStartTick;
-                uint32_t executionTime;
-                uint32_t interval;
-                void(*execute)();
-            };
-
-			/// Status of task
-            enum class Status
-            {
-                idle = 0,
-                running,
-                late_start,
-                exceeded_runtime
-            };
-
-			/**
-			* @brief Default constructor
-			*/
-            Task() = default;
-
-			/**
-			* @brief Task constructor
-			*
-			* @param[in] name - sting object name of task
-			* @param[in] interval - interval at which task should be run in
-			* terms of Scheduler ticks
-			* @param[in] execute - pointer to function implementing task
-			*/
-            Task(std::string& name, uint32_t interval, void(*execute)());
-
-			/**
-			* @brief Task constructor
-			*
-			* @param[in] name - C string name of task
-			* @param[in] interval - interval at which task should be run in
-			* terms of Scheduler ticks
-			* @param[in] execute - pointer to function implementing task
-			*/
-            Task(const char *  name, uint32_t interval, void(*execute)());
-
-			/**
-			* @brief Gets task configuration
-			*
-			* @return configuration of task
-			*/
-            Config& get_config();
-
-			/**
-			* @brief Runs task execute function
-			*
-			* @param[in] start_tick - Scheduler tick at which task was started
-			*
-			* @return status of task
-			*/
-            Status run(uint32_t start_tick);
-
-        private:
-            std::string name;
-            Config config;
+        uint32_t startTick;
+        uint32_t stopTick;
+        uint32_t lastStartTick;
+        uint32_t executionTime;
+        uint32_t interval;
+        void(*execute)();
     };
+
+    /// Status of task
+    enum class Status
+    {
+        idle = 0,
+        running,
+        late_start,
+        exceeded_runtime
+    };
+
+    /**
+    * @brief Default constructor
+    */
+    Task() = default;
+
+    /**
+    * @brief Task constructor
+    *
+    * @param[in] interval - interval at which task should be run in
+    * terms of Scheduler ticks
+    * @param[in] execute - pointer to function implementing task
+    */
+    Task(uint32_t interval, void(*execute)());
+
+    /**
+    * @brief Gets task configuration
+    *
+    * @return configuration of task
+    */
+    Config& get_config();
+
+    /**
+    * @brief Runs task execute function
+    *
+    * @param[in] start_tick - Scheduler tick at which task was started
+    *
+    * @return status of task
+    */
+    Status run(uint32_t start_tick);
+
+private:
+    Config config;
+};
 }//namespace Scheduler

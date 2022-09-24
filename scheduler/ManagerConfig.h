@@ -26,19 +26,23 @@
 
 #include <cstdint>
 
-//#include "platform.h" //Your system header
-
 /// Simple cooperative Scheduler
 namespace Scheduler
 {
-    // Define system fn for getting system ticks
-    constexpr uint32_t (*get_scheduler_ticks)() {micros};
+    // Define system fn for getting scheduler ticks
+    constexpr uint32_t (*get_scheduler_ticks)() {BSP::get_sys_ticks};
 
-    // Define time in terms of get_system_ticks
-    constexpr uint32_t fifty_micro_seconds {50};
-    constexpr uint32_t hundred_micro_seconds {fifty_micro_seconds * 2};
-    constexpr uint32_t one_milli_second {hundred_micro_seconds * 10};
-    constexpr uint32_t ten_milli_second {one_milli_second * 10};
-    constexpr uint32_t hundred_milli_second{ten_milli_second * 10};
-    constexpr uint32_t one_second {hundred_milli_second * 10};
+    // Base frequency that scheduler runs at
+    constexpr uint32_t scheduler_frequency_hz {100000};
+
+    constexpr uint32_t tics_from_frequency(float frequency)
+    {
+        float scheduler_frequency_f = scheduler_frequency_hz *1.0f;
+        return scheduler_frequency_f/frequency + 0.5;
+    }
+
 }; //namespace Scheduler
+
+#include "Manager.h"
+#include "Task.h"
+#include "tasks.h"

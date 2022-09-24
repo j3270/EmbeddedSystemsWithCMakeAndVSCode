@@ -22,26 +22,35 @@
 * SOFTWARE.
 ******************************************************************************/
 
-#include "Manager.h"
-#include "Task.h"
-#include "tasks.h"
+#include "bsp.h"
+#include "ManagerConfig.h"
 
 int main(void)
 {
-    init_app();
+    constexpr uint32_t Four_Hz {4};
+    constexpr uint32_t Ten_Hz {10};
+    constexpr uint32_t Twenty_Hz {20};
+    constexpr uint32_t Two_Hundred_Hz {200};
+    constexpr uint32_t One_Hundred_KHz {100000};
+
+
+    BSP::init(One_Hundred_KHz);
 
 	// Create task scheduler and add tasks
-    Scheduler::Manager scheduler(get_sys_ticks);
-    
+    Scheduler::Manager scheduler(BSP::get_sys_ticks);
+
     // Setup application task main_task
-    Scheduler::Task task1("toggle_led", get_scheduler_ticks_from_ms(100), toggle_led);
-    scheduler.add_task(task1);
+    Scheduler::Task task1(Scheduler::tics_from_frequency(Ten_Hz), BSP::toggle_led0);
+    scheduler.add_task(&task1);
 
-    Scheduler::Task task2("read_pot", get_scheduler_ticks_from_ms(5), read_pot);
-    scheduler.add_task(task2);
+    Scheduler::Task task2(Scheduler::tics_from_frequency(Two_Hundred_Hz), read_pot);
+    scheduler.add_task(&task2);
 
-    Scheduler::Task task3("set_servo_position", get_scheduler_ticks_from_ms(50), set_servo_position);
-    scheduler.add_task(task3);
+    Scheduler::Task task3(Scheduler::tics_from_frequency(Twenty_Hz), set_servo_position);
+    scheduler.add_task(&task3);
+
+    Scheduler::Task task4(Scheduler::tics_from_frequency(Four_Hz), display_data);
+    scheduler.add_task(&task4);
 
     while(1)
     {

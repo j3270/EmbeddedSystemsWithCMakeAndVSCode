@@ -17,7 +17,8 @@
 			"compiler.h": "c",
 			"adc.h": "c",
 			"cstddef": "cpp",
-			"*.tcc": "cpp"
+			"*.tcc": "cpp",
+			"gclk.h": "c"
 		}
 	}
 }

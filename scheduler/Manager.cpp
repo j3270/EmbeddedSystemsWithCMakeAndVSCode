@@ -28,41 +28,42 @@
 
 namespace Scheduler
 {
-    Manager::Manager(uint32_t (*get_ticks)(void)):
+Manager::Manager(uint32_t (*get_ticks)(void)):
     get_ticks(get_ticks)
-    {
+{
 
+}
+
+void Manager::add_task(Task* task)
+{
+    if (num_tasks < max_tasks)
+    {
+        tasks[num_tasks++] = task;
     }
+}
 
-    void Manager::add_task(Task& task)
+void Manager::run()
+{
+    for (size_t idx {0}; idx < num_tasks; idx++)
     {
-        if(num_tasks < max_tasks)
-        {
-            tasks[num_tasks++] = &task;
-        }
-    }
+        uint32_t current_tick {get_ticks()};
+        Task::Config& config {tasks[idx]->get_config()};
 
-    void Manager::run()
-    {
-        for(size_t idx {0}; idx < num_tasks; idx++)
+        if ((current_tick - config.lastStartTick) >= config.interval)
         {
-            uint32_t current_tick {get_ticks()};
-            Task::Config& config {tasks[idx]->get_config()};
+            tasks[idx]->run(current_tick);
 
-            if((current_tick - config.lastStartTick) >= config.interval)
+            config.stopTick = get_ticks();
+            config.executionTime = config.stopTick - config.startTick;
+
+            // Check if execution time is greater than 50% of interval
+
+            if (config.executionTime > (config.interval / 2))
             {
-                tasks[idx]->run(current_tick);
-
-                config.stopTick = get_ticks();
-                config.executionTime = config.stopTick - config.startTick;
-
-                // Check if execution time is greater than 50% of interval
-
-                if(config.executionTime > (config.interval/2))
-                {
-                    //while(1); //Do something else, a fault or something provided by platform interface
-                }
+                //while(1); //Do something else, a fault or something provided by platform interface
             }
         }
     }
+}
+
 } //namespace Scheduler

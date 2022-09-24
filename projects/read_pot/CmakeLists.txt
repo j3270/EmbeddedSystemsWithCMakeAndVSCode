@@ -7,6 +7,7 @@ set(ASSEMBLY_FILES
 set(SOURCES 
         ../../scheduler/Manager.cpp
         ../../scheduler/Task.cpp
+        ../../projects/read_pot/bsp.cpp
         ../../projects/read_pot/main.cpp
         ../../projects/read_pot/tasks.cpp
         ../../projects/read_pot/cmsis/source/gcc/startup_samd21.c

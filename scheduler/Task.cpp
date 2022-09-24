@@ -25,49 +25,37 @@
 
 namespace Scheduler
 {
-    Task::Task(std::string& name, uint32_t interval, void(*execute)()):
-    name(name)
+/**** Class Task Defenitions **********************************************/
+Task::Task(uint32_t interval, void(*execute)())
+{
+    config.startTick = 0;
+    config.stopTick = 0;
+    config.lastStartTick = 0;
+    config.executionTime = 0;
+    config.interval = interval;
+    config.execute = execute;
+}
+
+Task::Config& Task::get_config()
+{
+    return config;
+}
+
+Task::Status Task::run(uint32_t start_tick)
+{
+    Task::Status status {Status::running};
+    config.startTick = start_tick;
+
+    //Check if task failed to start on time
+    if (config.startTick - config.lastStartTick > config.interval)
     {
-        config.startTick = 0;
-        config.stopTick = 0;
-        config.lastStartTick = 0;
-        config.executionTime = 0;
-        config.interval = interval;
-        config.execute = execute;
+        status = Status::late_start;
+        //while(1); //Do something else, a fault or something provided by platform interface
     }
+    config.lastStartTick = config.startTick;
 
+    config.execute();
 
-    Task::Task(const char * name, uint32_t interval, void(*execute)()):
-    name(name)
-    {
-        config.startTick = 0;
-        config.stopTick = 0;
-        config.lastStartTick = 0;
-        config.executionTime = 0;
-        config.interval = interval;
-        config.execute = execute;
-    }
-
-    Task::Config& Task::get_config()
-    {
-        return config;
-    }
-
-    Task::Status Task::run(uint32_t start_tick)
-    {
-        Task::Status status {Status::running};
-        config.startTick = start_tick;
-
-        //Check if task failed to start on time
-        if(config.startTick - config.lastStartTick > config.interval)
-        {
-            status = Status::late_start;
-            //while(1); //Do something else, a fault or something provided by platform interface
-        }
-        config.lastStartTick = config.startTick;
-
-        config.execute();
-
-        return status;
-    }
+    return status;
+}
 }//namespace Scheduler
