@@ -6,16 +6,16 @@
       {
           "type": "process",
           "command": "${env:OZONE}",
-          "label": "Ozone blinky",
+          "label": "Ozone blinky_asf",
           "args": [
               "-device ATSAMD21J18",
               "-if SWD",
               "-speed 4000",
               "-usb",
               "-project",
-              "${workspaceFolder}/projects/blinky/blinky.jdebug",
+              "${workspaceFolder}/projects/blinky_asf/blinky.jdebug",
               "-programfile",
-              "${workspaceFolder}/build/projects/blinky/blinky.elf"
+              "${workspaceFolder}/build/projects/blinky_asf/blinky_asf.elf"
           ],
           "problemMatcher": []
       },
@@ -38,32 +38,32 @@
       {
         "type": "process",
         "command": "${env:OZONE}",
-        "label": "Ozone helloworld",
+        "label": "Ozone helloworld_asf",
         "args": [
             "-device ATSAMD21J18",
             "-if SWD",
             "-speed 4000",
             "-usb",
             "-project",
-            "${workspaceFolder}/projects/helloworld/helloworld.jdebug",
+            "${workspaceFolder}/projects/helloworld_asf/helloworld.jdebug",
             "-programfile",
-            "${workspaceFolder}/build/projects/helloworld/helloworld.elf"
+            "${workspaceFolder}/build/projects/helloworld_asf/helloworld_asf.elf"
         ],
         "problemMatcher": []
       },
       {
         "type": "process",
         "command": "${env:OZONE}",
-        "label": "Ozone read_pot",
+        "label": "Ozone read_pot_asf",
         "args": [
             "-device ATSAMD21J18",
             "-if SWD",
             "-speed 4000",
             "-usb",
             "-project",
-            "${workspaceFolder}/projects/read_pot/read_pot.jdebug",
+            "${workspaceFolder}/projects/read_pot_asf/read_pot.jdebug",
             "-programfile",
-            "${workspaceFolder}/build/projects/read_pot/read_pot.elf"
+            "${workspaceFolder}/build/projects/read_pot_asf/read_pot.elf"
         ],
         "problemMatcher": []
       }
