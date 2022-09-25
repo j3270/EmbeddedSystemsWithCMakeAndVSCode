@@ -5,15 +5,14 @@ set(ASSEMBLY_FILES
 )
 
 set(SOURCES 
-        ../../projects/i2c_devices_on_bus/main.cpp
-        ../../projects/i2c_devices_on_bus/cmsis/source/gcc/startup_samd21.c
-        ../../projects/i2c_devices_on_bus/cmsis/source/gcc/system_samd21.c
+        ../../projects/helloworld_asf/main.cpp
+        ../../projects/helloworld_asf/cmsis/source/gcc/startup_samd21.c
+        ../../projects/helloworld_asf/cmsis/source/gcc/system_samd21.c
         ../../xdk-asf-3.51.0/common/utils/interrupt/interrupt_sam_nvic.c
         ../../xdk-asf-3.51.0/common2/services/delay/sam0/systick_counter.c
         ../../xdk-asf-3.51.0/sam0/boards/samd21_xplained_pro/board_init.c
         ../../xdk-asf-3.51.0/sam0/drivers/port/port.c
         ../../xdk-asf-3.51.0/sam0/drivers/sercom/sercom.c
-        ../../xdk-asf-3.51.0/sam0/drivers/sercom/i2c/i2c_sam0/i2c_master.c
         ../../xdk-asf-3.51.0/sam0/drivers/sercom/usart/usart.c
         ../../xdk-asf-3.51.0/sam0/drivers/system/system.c
         ../../xdk-asf-3.51.0/sam0/drivers/system/pinmux/pinmux.c
@@ -26,8 +25,8 @@ set(SOURCES
 )
 
 set(INCLUDE_DIRS 
-        ../../projects/i2c_devices_on_bus
-        ../../projects/i2c_devices_on_bus/cmsis/include
+        ../../projects/helloworld_asf
+        ../../projects/helloworld_asf/cmsis/include
         ../../xdk-asf-3.51.0/common/boards
         ../../xdk-asf-3.51.0/common/services/serial
         ../../xdk-asf-3.51.0/common/utils
@@ -39,8 +38,6 @@ set(INCLUDE_DIRS
         ../../xdk-asf-3.51.0/sam0/boards/samd21_xplained_pro/board_config
         ../../xdk-asf-3.51.0/sam0/drivers/port
         ../../xdk-asf-3.51.0/sam0/drivers/sercom
-        ../../xdk-asf-3.51.0/sam0/drivers/sercom/i2c
-        ../../xdk-asf-3.51.0/sam0/drivers/sercom/i2c/i2c_sam0 
         ../../xdk-asf-3.51.0/sam0/drivers/sercom/usart
         ../../xdk-asf-3.51.0/sam0/drivers/system
         ../../xdk-asf-3.51.0/sam0/drivers/system/clock
@@ -79,9 +76,9 @@ set(FPU_FLAGS
         -mfpu=auto
 )
 
-project(i2c_devices_on_bus)
+project(helloworld_asf)
 
-set(EXECUTABLE i2c_devices_on_bus.elf)
+set(EXECUTABLE helloworld_asf.elf)
 
 add_executable(${EXECUTABLE} ${SOURCES} ${ASSEMBLY_FILES})
 
@@ -97,7 +94,7 @@ target_compile_options(${EXECUTABLE} PRIVATE
 target_link_options(${EXECUTABLE} PRIVATE  
         ${CPU_FLAGS} 
         ${FPU_FLAGS} 
-        -T ${CMAKE_SOURCE_DIR}/projects/i2c_devices_on_bus/cmsis/samd21j18a_flash.ld)
+        -T ${CMAKE_SOURCE_DIR}/projects/helloworld_asf/cmsis/samd21j18a_flash.ld)
 
 target_link_libraries(${EXECUTABLE} ${CMAKE_SOURCE_DIR}/xdk-asf-3.51.0/thirdparty/CMSIS/Lib/GCC/libarm_cortexM0l_math.a)
 
