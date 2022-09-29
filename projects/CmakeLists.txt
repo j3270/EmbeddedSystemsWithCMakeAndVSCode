@@ -1,6 +1,7 @@
 
-add_subdirectory(blinky_asf)
+
 add_subdirectory(blinky)
+add_subdirectory(blinky_asf)
 add_subdirectory(helloworld_asf)
 add_subdirectory(i2c_devices_on_bus_asf)
 add_subdirectory(read_pot_asf)

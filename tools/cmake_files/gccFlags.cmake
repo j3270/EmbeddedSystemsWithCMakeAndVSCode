@@ -116,9 +116,6 @@ SET(CMAKE_EXE_LINKER_FLAGS_DEBUG " \
     -z \
     -Xlinker \
     muldefs \
-    -Xlinker \
-    -Map=output.map \
-    -Wl,--print-memory-usage \
 ")
 SET(CMAKE_EXE_LINKER_FLAGS_RELEASE " \
     ${CMAKE_EXE_LINKER_FLAGS_RELEASE} \
@@ -140,7 +137,4 @@ SET(CMAKE_EXE_LINKER_FLAGS_RELEASE " \
     -z \
     -Xlinker \
     muldefs \
-    -Xlinker \
-    -Map=output.map \
-    -Wl,--print-memory-usage \
 ")
