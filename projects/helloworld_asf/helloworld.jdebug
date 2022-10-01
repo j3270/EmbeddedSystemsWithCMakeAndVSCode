@@ -4,7 +4,7 @@
 *                         www.segger.com                             *
 **********************************************************************
 
-File          : C:/GitHub/SAMD_Experiments/projects/blinky/blinky.jdebug
+File          : C:/GitHub/SAMD_Experiments/projects/HelloWorld_asf/helloworld.jdebug
 Created       : 25 Dec 2021 11:10
 Ozone Version : V3.24g
 */
@@ -30,7 +30,7 @@ void OnProjectLoad (void) {
   //
   // User settings
   //
-  File.Open ("$(ProjectDir)/../../build/HelloWorld_asf.elf");
+  File.Open ("$(ProjectDir)/build/HelloWorld_asf.elf");
 }
 
 /*********************************************************************

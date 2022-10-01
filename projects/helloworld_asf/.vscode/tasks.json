@@ -13,7 +13,7 @@
                 "-speed 4000",
                 "-usb",
                 "-project",
-                "${workspaceFolder}/blinky.jdebug",
+                "${workspaceFolder}/helloworld.jdebug",
                 "-programfile",
                 "${workspaceFolder}/build/HelloWorld_asf.elf"
             ],
