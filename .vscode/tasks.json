@@ -38,22 +38,6 @@
       {
         "type": "process",
         "command": "${env:OZONE}",
-        "label": "Ozone SeggerRttPrintfTest",
-        "args": [
-            "-device ATSAMD21J18",
-            "-if SWD",
-            "-speed 4000",
-            "-usb",
-            "-project",
-            "${workspaceFolder}/projects/SeggerRttPrintfTest/SeggerRttPrintfTest.jdebug",
-            "-programfile",
-            "${workspaceFolder}/build/projects/SeggerRttPrintfTest/SeggerRttPrintfTest.elf"
-        ],
-        "problemMatcher": []
-      },
-      {
-        "type": "process",
-        "command": "${env:OZONE}",
         "label": "Ozone helloworld_asf",
         "args": [
             "-device ATSAMD21J18",
@@ -70,6 +54,22 @@
       {
         "type": "process",
         "command": "${env:OZONE}",
+        "label": "Ozone i2c_devices_on_bus_asf",
+        "args": [
+            "-device ATSAMD21J18",
+            "-if SWD",
+            "-speed 4000",
+            "-usb",
+            "-project",
+            "${workspaceFolder}/projects/i2c_devices_on_bus_asf/i2c_devices_on_bus_asf.jdebug",
+            "-programfile",
+            "${workspaceFolder}/build/projects/i2c_devices_on_bus_asf/i2c_devices_on_bus_asf.elf"
+        ],
+        "problemMatcher": []
+      },
+      {
+        "type": "process",
+        "command": "${env:OZONE}",
         "label": "Ozone read_pot_asf",
         "args": [
             "-device ATSAMD21J18",
@@ -79,10 +79,26 @@
             "-project",
             "${workspaceFolder}/projects/read_pot_asf/read_pot.jdebug",
             "-programfile",
-            "${workspaceFolder}/build/projects/read_pot_asf/read_pot.elf"
+            "${workspaceFolder}/build/projects/read_pot_asf/read_pot_asf.elf"
         ],
         "problemMatcher": []
-      }
+      },
+      {
+        "type": "process",
+        "command": "${env:OZONE}",
+        "label": "Ozone SeggerRttPrintfTest",
+        "args": [
+            "-device ATSAMD21J18",
+            "-if SWD",
+            "-speed 4000",
+            "-usb",
+            "-project",
+            "${workspaceFolder}/projects/SeggerRttPrintfTest/SeggerRttPrintfTest.jdebug",
+            "-programfile",
+            "${workspaceFolder}/build/projects/SeggerRttPrintfTest/SeggerRttPrintfTest.elf"
+        ],
+        "problemMatcher": []
+      },
     ]
   }
   
