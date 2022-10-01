@@ -4,6 +4,22 @@
     "version": "2.0.0",
     "tasks": [
       {
+        "type": "process",
+        "command": "${env:OZONE}",
+        "label": "Ozone blinky",
+        "args": [
+            "-device ATSAMD21J18",
+            "-if SWD",
+            "-speed 4000",
+            "-usb",
+            "-project",
+            "${workspaceFolder}/projects/blinky/blinky.jdebug",
+            "-programfile",
+            "${workspaceFolder}/build/projects/blinky/blinky.elf"
+        ],
+        "problemMatcher": []
+      },
+      {
           "type": "process",
           "command": "${env:OZONE}",
           "label": "Ozone blinky_asf",
