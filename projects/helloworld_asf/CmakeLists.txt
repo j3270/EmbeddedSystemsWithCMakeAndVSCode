@@ -78,7 +78,7 @@ set(FPU_FLAGS
 
 project(helloworld_asf)
 
-set(EXECUTABLE helloworld_asf.elf)
+set(EXECUTABLE helloworld_asf)
 
 add_executable(${EXECUTABLE} ${SOURCES} ${ASSEMBLY_FILES})
 
