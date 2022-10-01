@@ -1,0 +1,14 @@
+{
+	"folders": [
+		{
+			"path": "."
+		},
+		{
+			"path": "../../scheduler"
+		},
+		{
+			"path": "../../xdk-asf-3.51.0"
+		}
+	],
+	"settings": {}
+}
