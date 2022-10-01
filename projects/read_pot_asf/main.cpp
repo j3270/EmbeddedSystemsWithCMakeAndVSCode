@@ -24,6 +24,7 @@
 
 #include "bsp.h"
 #include "ManagerConfig.h"
+#include "tasks.h"
 
 int main(void)
 {

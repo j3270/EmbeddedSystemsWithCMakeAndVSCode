@@ -45,4 +45,3 @@ namespace Scheduler
 
 #include "Manager.h"
 #include "Task.h"
-#include "tasks.h"
