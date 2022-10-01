@@ -6,8 +6,8 @@
     "configurations": [
         {
             "cwd": "${workspaceFolder}",
-            "executable": "${workspaceFolder}/build/i2c_devices_on_bus_asf.elf",
-            "name": "Debug i2c_devices_on_bus_asf",
+            "executable": "${workspaceFolder}/build/read_pot_asf.elf",
+            "name": "Debug read_pot_asf",
             "request": "launch",
             "type": "cortex-debug",
             "servertype": "jlink",

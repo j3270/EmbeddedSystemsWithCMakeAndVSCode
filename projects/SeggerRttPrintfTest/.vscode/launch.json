@@ -6,8 +6,8 @@
     "configurations": [
         {
             "cwd": "${workspaceFolder}",
-            "executable": "${workspaceFolder}/build/i2c_devices_on_bus_asf.elf",
-            "name": "Debug i2c_devices_on_bus_asf",
+            "executable": "${workspaceFolder}/build/SeggerRttPrintfTest.elf",
+            "name": "Debug SeggerRttPrintfTest",
             "request": "launch",
             "type": "cortex-debug",
             "servertype": "jlink",
