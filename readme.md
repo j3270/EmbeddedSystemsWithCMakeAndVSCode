@@ -1,7 +1,7 @@
 
 # Purpose
 
-The purpose of this repo is for learning.  I am evaluating SAMD devices and using the following tools:  
+The purpose of this repo is for learning new (and old) tools used in embedded development.  I am currently using the following tools:  
 
 - [ARM GNU Toolchain](https://developer.arm.com/tools-and-software/open-source-software/developer-tools/gnu-toolchain/gnu-rm)
 - [Segger's Ozone Debugger](https://www.segger.com/products/development-tools/ozone-j-link-debugger/)
@@ -11,15 +11,17 @@ The purpose of this repo is for learning.  I am evaluating SAMD devices and usin
 - [Advanced Software Framework v3.51.0 from Microchip (Atmel)](https://www.microchip.com/en-us/tools-resources/develop/libraries/advanced-software-framework)  
 <https://asf.microchip.com/docs/latest/index.html>
 
-I was looking for svd files, to use with Segger's Ozone debugger, which didn't appear to be part of the xdk download.  I found them here  
+The ASF download didn't include SVD files for peripheral register viewing in VS Code and Ozone.  I found them here,  
 [SVD Files](http://packs.download.atmel.com/)
 
 # Repository Structure
 
 - build (ignored)
+- devices (future work for sensors, external memory, etc..)
 - projects
-- svd
-- tools
+- Submodules (External repos)
+- scheduler (Simple CoOp scheduler I am playing with)
+- tools (Cmake files/modules, svd files, SeggerRTT, etc.)
 - xdk-asf-3.51.0 (need to trim files not needed)
 
 # Boards
@@ -37,6 +39,23 @@ c. SVD file is ATSAMD21G18A.svd
 
 I updated the EDBG firmware on the SAMD21_Xplained_pro evaluation board to Segger_OB firmware by following the instructions at this link, [Firmware for Atmel EDBG on Xplained Platforms](https://www.segger.com/products/debug-probes/j-link/models/other-j-links/j-link-edbg/).  This firmware makes the EDBG mcu J-Link compatiable with some limitations that are documented at the previous link.
 
+# VS Code & CMake Workspace/Project structure
+
+I have structured my CMake and VS Code workspace files to support a workspace/project structure.  The root CmakeLists.txt file adds a subdirectory 'projects'.  The projects directory CmakeLists.txt file adds each project as a sub directory allowing for a workspace/project perspective from the root of the repo.  All projects are buildable and debugable from the root VS Code workspace.
+
+In addition, each project has its own VS Code workspace file allowing for working with that project stand alone if desired.
+
+To add a new project, start at the project level.
+
+1. Add a new folder under projects with your project name.
+2. Add a CmakeLists.txt file to the root of your project using an existing project's CmakeLists.txt file as an example.
+3. Add .vscode folder and copy contents of existing projects .vscode folder to yours.  Update appropriately.
+4. Add a jdebug project file for your project for Ozone
+5. In the 'projects' directories CmakeLists.txt file insert an add_subdirectory() command for your project.
+6. Update the top level launch.json and tasks.json files for your project.
+
+If anyone has suggestions for improvements on this strategy with respect to my use of Cmake and VS Code workspaces, I would appreciate the feedback.  Please be constructive.
+
 # Building Projects
 
 The workspace uses Cmake with Cmake tools for VS code to configure the build for each project and Ninja as the build generator.  To build the projects you will need to install the following tools:
@@ -53,9 +72,9 @@ d. Cortex-Debug
 After installing the above tools, add the following environment variable:  
 **GCC_INSTALL**, which should point to something like C:\Program Files (x86)\GNU Arm Embedded Toolchain\10 2020-q4-major
 
-With the above tools installed, you should be able to open the workspace file with VS Code and select **GNU Arm Embeeded Toolchain** as the active kit.  If the CMake extension hasn't already started configuring the build for each project, use ctrl+shift+p to bring up the command pallate, type CMake and select CMake: Configure.
+With the above tools installed, you should be able to open the top level workspace file (or an indicidual project workspace file) with VS Code and select **GNU ARM Embeeded Toolchain** as the active kit.  If the CMake extension hasn't already started configuring the build for the project(s), use ctrl+shift+p to bring up the command pallate, type CMake and select CMake: Configure.
 
-Once the build configurations have completed successfully, click the build icon in the bottom ribon of VS code.
+Once the build configurations have completed successfully, click the build icon (with 'all' selected, or the individual project you want to build) in the bottom ribon of VS code.
 
 # Debugging Projects
 
