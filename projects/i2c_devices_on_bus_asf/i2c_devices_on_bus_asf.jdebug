@@ -30,7 +30,7 @@ void OnProjectLoad (void) {
   //
   // User settings
   //
-  File.Open ("C:/SmartProjects/SmartGit/SAMD_Experiments/build/projects/i2c_devices_on_bus_asf/i2c_devices_on_bus_asf.elf");
+  File.Open ("$(ProjectDir)/build/i2c_devices_on_bus_asf.elf");
 }
 
 /*********************************************************************
