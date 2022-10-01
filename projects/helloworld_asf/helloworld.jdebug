@@ -26,11 +26,11 @@ void OnProjectLoad (void) {
   Project.SetDevice ("ATSAMD21J18");
   Project.SetTargetIF ("SWD");
   Project.SetTIFSpeed ("4 MHz");
-  Project.AddSvdFile ("$(ProjectDir)/../../svd/ATSAMD21J18A.svd");
+  Project.AddSvdFile ("$(ProjectDir)/../../tools/svd/ATSAMD21J18A.svd");
   //
   // User settings
   //
-  File.Open ("$(ProjectDir)/../../build/projects/helloworld/helloworld.elf");
+  File.Open ("$(ProjectDir)/../../build/HelloWorld_asf.elf");
 }
 
 /*********************************************************************
