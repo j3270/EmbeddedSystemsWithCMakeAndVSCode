@@ -1,0 +1,17 @@
+{
+	"folders": [
+		{
+			"path": "."
+		},
+		{
+			"path": "../../tools"
+		},
+		{
+			"path": "../../xdk-asf-3.51.0"
+		},
+		{
+			"path": "../../Submodules"
+		}
+	],
+	"settings": {}
+}
