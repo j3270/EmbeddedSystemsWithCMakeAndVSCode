@@ -17,7 +17,7 @@
             "serialNumber": "", // add J-Link serial number if having multiple attached the same time.
             "runToMain": true,
             "breakAfterReset": true,
-            "svdFile": "${workspaceFolder}/svd/ATSAMD21J18A.svd",
+            "svdFile": "${workspaceFolder}/tools/svd/ATSAMD21J18A.svd",
 
         },
         {
@@ -33,7 +33,7 @@
             "serialNumber": "", // add J-Link serial number if having multiple attached the same time.
             "runToMain": true,
             "breakAfterReset": true,
-            "svdFile": "${workspaceFolder}/svd/ATSAMD21J18A.svd",
+            "svdFile": "${workspaceFolder}/tools/svd/ATSAMD21J18A.svd",
 
         },
         {
@@ -49,7 +49,7 @@
             "serialNumber": "", // add J-Link serial number if having multiple attached the same time.
             "runToMain": true,
             "breakAfterReset": true,
-            "svdFile": "${workspaceFolder}/svd/ATSAMD21J18A.svd",
+            "svdFile": "${workspaceFolder}/tools/svd/ATSAMD21J18A.svd",
 
         },
         {
@@ -65,7 +65,7 @@
             "serialNumber": "", // add J-Link serial number if having multiple attached the same time.
             "runToMain": true,
             "breakAfterReset": true,
-            "svdFile": "${workspaceFolder}/svd/ATSAMD21J18A.svd",
+            "svdFile": "${workspaceFolder}/tools/svd/ATSAMD21J18A.svd",
 
         },
         {
@@ -81,7 +81,7 @@
             "serialNumber": "", // add J-Link serial number if having multiple attached the same time.
             "runToMain": true,
             "breakAfterReset": true,
-            "svdFile": "${workspaceFolder}/svd/ATSAMD21J18A.svd",
+            "svdFile": "${workspaceFolder}/tools/svd/ATSAMD21J18A.svd",
 
         },
         {
@@ -97,7 +97,7 @@
             "serialNumber": "", // add J-Link serial number if having multiple attached the same time.
             "runToMain": true,
             "breakAfterReset": true,
-            "svdFile": "${workspaceFolder}/svd/ATSAMD21J18A.svd",
+            "svdFile": "${workspaceFolder}/tools/svd/ATSAMD21J18A.svd",
 
         }
     ]
