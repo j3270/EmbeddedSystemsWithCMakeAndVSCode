@@ -1,4 +1,5 @@
 
+#include <array>
 #include "asf.h"
 #include "stdio_serial.h"
 #include "conf_uart_serial.h"
@@ -41,6 +42,19 @@ void configure_i2c_master(void)
 	
 }
 
+void update_terminal(const char c, size_t& column)
+{
+	if(column == 16)
+	{
+		printf("%c\r\n", c);
+		column = 0;
+	}
+	else
+	{
+		printf("%c", c);
+	}
+}
+
 int main(void)
 {
 	system_init();
@@ -48,25 +62,45 @@ int main(void)
 	configure_console();
 	configure_i2c_master();
 
-	printf("Hello World!\r\n");
+	printf("I2C_Scan_Bus\r\n");
+	printf("The character '.' represents an address not found,\r\n");
+	printf("while the character '*' represents and address found\r\n\r\n");
 
 	i2c_master_packet test_packet;
 	test_packet.data_length = 0;
 	test_packet.ten_bit_address = false;
 	test_packet.high_speed = false;
 
-	for(uint8_t adrs = 0; adrs < 0x80; adrs++)
+	std::array<uint8_t, 128> addresses_found {};
+	size_t array_idx {0};
+	size_t column = 0;
+
+	for(size_t adrs = 0; adrs < 0x80; adrs++)
 	{
-		printf("Trying slave address %d\r\n", adrs);
 		test_packet.address = adrs;
 		status_code i2c_status = i2c_master_write_packet_wait(&i2c_master_instance, &test_packet);
+
 		if(i2c_status == STATUS_OK)
 		{
-			printf("Found device at %d\r\n", adrs);
+			column++;
+			update_terminal('*', column);
+			addresses_found[array_idx++] = adrs;
+		}
+		else
+		{
+			column++;
+			update_terminal('.', column);
 		}
 		LED_Toggle(LED_0_PIN);
 		delay_ms(100);
 	}
+
+	printf("Found %d devices:\r\n", array_idx);
+	for(size_t idx = 0; idx < array_idx; ++idx)
+	{
+		printf("ADRS = 0x%2x\r\n", addresses_found[idx]);
+	}
+	printf("\r\n");
 
 	while (true)
 	{
