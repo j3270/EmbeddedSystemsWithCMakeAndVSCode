@@ -86,8 +86,8 @@
         },
         {
             "cwd": "${workspaceFolder}",
-            "executable": "./build/projects/i2c_devices_on_bus_asf/i2c_devices_on_bus_asf.elf",
-            "name": "Debug i2c_devices_on_bus_asf",
+            "executable": "./build/projects/I2C_Scan_Bus/I2C_Scan_Bus.elf",
+            "name": "Debug I2C_Scan_Bus",
             "request": "launch",
             "type": "cortex-debug",
             "servertype": "jlink",

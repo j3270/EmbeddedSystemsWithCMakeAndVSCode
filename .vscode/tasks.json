@@ -54,16 +54,16 @@
       {
         "type": "process",
         "command": "${env:OZONE}",
-        "label": "Ozone i2c_devices_on_bus_asf",
+        "label": "Ozone I2C_Scan_Bus",
         "args": [
             "-device ATSAMD21J18",
             "-if SWD",
             "-speed 4000",
             "-usb",
             "-project",
-            "${workspaceFolder}/projects/i2c_devices_on_bus_asf/i2c_devices_on_bus_asf.jdebug",
+            "${workspaceFolder}/projects/I2C_Scan_Bus/I2C_Scan_Bus.jdebug",
             "-programfile",
-            "${workspaceFolder}/build/projects/i2c_devices_on_bus_asf/i2c_devices_on_bus_asf.elf"
+            "${workspaceFolder}/build/projects/I2C_Scan_Bus/I2C_Scan_Bus.elf"
         ],
         "problemMatcher": []
       },
