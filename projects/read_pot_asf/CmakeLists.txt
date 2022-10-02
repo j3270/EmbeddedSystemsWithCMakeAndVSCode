@@ -112,6 +112,7 @@ target_link_options(${EXECUTABLE} PRIVATE
         ${FPU_FLAGS} 
         -Xlinker
         -Map=${CMAKE_CURRENT_BINARY_DIR}/${PROJECT_NAME}.map
+        -Wl,--print-memory-usage
         -T ${CMAKE_CURRENT_SOURCE_DIR}/cmsis/samd21j18a_flash.ld)
 
 target_link_libraries(${EXECUTABLE} ${CMAKE_CURRENT_SOURCE_DIR}/../../xdk-asf-3.51.0/thirdparty/CMSIS/Lib/GCC/libarm_cortexM0l_math.a)
