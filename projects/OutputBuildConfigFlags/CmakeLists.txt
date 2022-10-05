@@ -5,7 +5,7 @@ message(STATUS "Build type = " ${CMAKE_BUILD_TYPE})
 message(STATUS "")
 
 if(NOT CMAKE_BUILD_TYPE)
-    message(STATUS "Build configuration undefined.  Please choose one of Debug, Release, MinSizeRel, or RelWithDebInfo...")
+    message(FATAL_ERROR "Build configuration undefined.  Please choose one of Debug, Release, MinSizeRel, or RelWithDebInfo...")
 else()
 
     message(STATUS "Default build config flags before modification...")
