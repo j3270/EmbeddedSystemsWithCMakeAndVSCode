@@ -1,5 +1,5 @@
 
-
+add_subdirectory(OutputBuildConfigFlags)
 add_subdirectory(blinky)
 add_subdirectory(blinky_asf)
 add_subdirectory(helloworld_asf)
