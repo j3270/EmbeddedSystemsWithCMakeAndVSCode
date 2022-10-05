@@ -6,7 +6,7 @@ if(NOT CMAKE_BUILD_TYPE)
     message(WARNING "Build type undefined. Options are: Debug, Release, MinSizeRel, or RelWithDebInfo")
     message(STATUS "Can be set with -DCMAKE_BUILD_TYPE:STRING=buildType], or choosing the variant in VS Code")
     message(STATUS "Setting build type to Debug")
-    set(CMAKE_BUILD_TYPE "Debug")
+    set(CMAKE_BUILD_TYPE "Debug" PARENT)
 endif()
 message(STATUS "")
 

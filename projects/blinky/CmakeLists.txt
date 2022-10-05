@@ -1,10 +1,17 @@
 cmake_minimum_required(VERSION 3.0.0)
 project(blinky VERSION 0.1.0)
 
-include(CTest)
-enable_testing()
 
-include(../../tools/cmake_files/gccFlags.cmake)
+if(PROJECT_IS_TOP_LEVEL)
+    include(CTest)
+	enable_testing()
+	
+	include(${CMAKE_CURRENT_SOURCE_DIR}/../../tools/cmake_files/utils.cmake)
+	CheckBuildType()
+	OutputBuildConfigFlags(${CMAKE_CURRENT_SOURCE_DIR}/../../tools/cmake_files/gccFlags.cmake)
+	include(../../tools/cmake_files/gccFlags.cmake)
+endif()
+
 
 set(ASSEMBLY_FILES 
 )
