@@ -70,7 +70,7 @@ d. Cortex-Debug
 4. [ARM GNU Toolchain](https://developer.arm.com/tools-and-software/open-source-software/developer-tools/gnu-toolchain/gnu-rm)
 
 After installing the above tools, add the following environment variable:  
-**GCC_INSTALL**, which should point to something like C:\Program Files (x86)\GNU Arm Embedded Toolchain\10 2020-q4-major
+**ARM_GCC_INSTALL**, which should point to something like C:\Program Files (x86)\GNU Arm Embedded Toolchain\10 2020-q4-major
 
 With the above tools installed, you should be able to open the top level workspace file (or an indicidual project workspace file) with VS Code and select **GNU ARM Embeeded Toolchain** as the active kit.  If the CMake extension hasn't already started configuring the build for the project(s), use ctrl+shift+p to bring up the command pallate, type CMake and select CMake: Configure.
 

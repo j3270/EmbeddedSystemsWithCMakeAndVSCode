@@ -11,7 +11,7 @@
             "request": "launch",
             "type": "cortex-debug",
             "servertype": "jlink",
-            "armToolchainPath": "${env:GCC_INSTALL}/bin",
+            "armToolchainPath": "${env:ARM_GCC_INSTALL}/bin",
             "device": "ATSAMD21J18",
             "interface": "swd",
             "serialNumber": "", // add J-Link serial number if having multiple attached the same time.
