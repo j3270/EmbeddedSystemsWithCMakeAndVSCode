@@ -67,12 +67,12 @@ c. Cmake language support (optional)
 d. Cortex-Debug  
 2. [CMake](https://cmake.org/) build configuration tool
 3. [Ninja](https://ninja-build.org/) build generator
-4. [ARM GNU Toolchain](https://developer.arm.com/tools-and-software/open-source-software/developer-tools/gnu-toolchain/gnu-rm)
+4. [ARM GNU Toolchain](https://developer.arm.com/downloads/-/arm-gnu-toolchain-downloads)
 
 After installing the above tools, add the following environment variable:  
-**ARM_GCC_INSTALL**, which should point to something like C:\Program Files (x86)\GNU Arm Embedded Toolchain\10 2020-q4-major
+**ARM_NONE_EABI_TOOLCHAIN**, which should point to something like */home/username/arm_gnu_toolchain/arm-gnu-toolchain-13.2.Rel1-x86_64-arm-none-eabi* depending on where you have installed it too.
 
-With the above tools installed, you should be able to open the top level workspace file (or an indicidual project workspace file) with VS Code and select **GNU ARM Embeeded Toolchain** as the active kit.  If the CMake extension hasn't already started configuring the build for the project(s), use ctrl+shift+p to bring up the command pallate, type CMake and select CMake: Configure.
+With the above tools installed, you should be able to open the top level workspace file (or an individual project workspace file) with VS Code and select **GNU ARM Embeeded Toolchain** as the active kit.  If the CMake extension hasn't already started configuring the build for the project(s), use ctrl+shift+p to bring up the command pallate, type CMake and select CMake: Configure.
 
 Once the build configurations have completed successfully, click the build icon (with 'all' selected, or the individual project you want to build) in the bottom ribon of VS code.
 

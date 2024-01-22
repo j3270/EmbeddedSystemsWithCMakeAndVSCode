@@ -11,7 +11,7 @@
             "request": "launch",
             "type": "cortex-debug",
             "servertype": "jlink",
-            "armToolchainPath": "${env:ARM_GCC_INSTALL}/bin",
+            "armToolchainPath": "${env:ARM_NONE_EABI_TOOLCHAIN}/bin",
             "device": "ATSAMD21J18",
             "interface": "swd",
             "serialNumber": "", // add J-Link serial number if having multiple attached the same time.
@@ -27,7 +27,7 @@
             "request": "launch",
             "type": "cortex-debug",
             "servertype": "jlink",
-            "armToolchainPath": "${env:ARM_GCC_INSTALL}/bin",
+            "armToolchainPath": "${env:ARM_NONE_EABI_TOOLCHAIN}/bin",
             "device": "ATSAMD21J18",
             "interface": "swd",
             "serialNumber": "", // add J-Link serial number if having multiple attached the same time.
@@ -43,7 +43,7 @@
             "request": "launch",
             "type": "cortex-debug",
             "servertype": "jlink",
-            "armToolchainPath": "${env:ARM_GCC_INSTALL}/bin",
+            "armToolchainPath": "${env:ARM_NONE_EABI_TOOLCHAIN}/bin",
             "device": "ATSAMD21J18",
             "interface": "swd",
             "serialNumber": "", // add J-Link serial number if having multiple attached the same time.
@@ -59,7 +59,7 @@
             "request": "launch",
             "type": "cortex-debug",
             "servertype": "jlink",
-            "armToolchainPath": "${env:ARM_GCC_INSTALL}/bin",
+            "armToolchainPath": "${env:ARM_NONE_EABI_TOOLCHAIN}/bin",
             "device": "ATSAMD21J18",
             "interface": "swd",
             "serialNumber": "", // add J-Link serial number if having multiple attached the same time.
@@ -75,7 +75,7 @@
             "request": "launch",
             "type": "cortex-debug",
             "servertype": "jlink",
-            "armToolchainPath": "${env:ARM_GCC_INSTALL}/bin",
+            "armToolchainPath": "${env:ARM_NONE_EABI_TOOLCHAIN}/bin",
             "device": "ATSAMD21J18",
             "interface": "swd",
             "serialNumber": "", // add J-Link serial number if having multiple attached the same time.
@@ -91,7 +91,7 @@
             "request": "launch",
             "type": "cortex-debug",
             "servertype": "jlink",
-            "armToolchainPath": "${env:ARM_GCC_INSTALL}/bin",
+            "armToolchainPath": "${env:ARM_NONE_EABI_TOOLCHAIN}/bin",
             "device": "ATSAMD21J18",
             "interface": "swd",
             "serialNumber": "", // add J-Link serial number if having multiple attached the same time.

@@ -24,7 +24,6 @@
 
 #pragma once
 
-#include <string>
 #include <cstdint>
 
 /// Simple cooperative Scheduler
