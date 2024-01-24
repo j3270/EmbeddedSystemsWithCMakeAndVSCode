@@ -22,7 +22,7 @@ The ASF download didn't include SVD files for peripheral register viewing in VS 
 - Submodules (External repos)
 - scheduler (Simple CoOp scheduler I am playing with)
 - tools (Cmake files/modules, svd files, SeggerRTT, etc.)
-- xdk-asf-3.51.0 (need to trim files not needed)
+- xdk-asf-3.52.0 (need to trim files not needed)
 
 # Boards
 

@@ -30,10 +30,10 @@ set(INCLUDE_DIRS
         ${CMAKE_CURRENT_SRC_DIR}cmsis/include
         ${CMAKE_CURRENT_SRC_DIR}../../tools/SEGGER_RTT_V754b/Config
         ${CMAKE_CURRENT_SRC_DIR}../../tools/SEGGER_RTT_V754b/RTT
-        ${CMAKE_CURRENT_SRC_DIR}../../xdk-asf-3.51.0/sam0/utils/cmsis/samd21/include
-        ${CMAKE_CURRENT_SRC_DIR}../../xdk-asf-3.51.0/sam0/utils/cmsis/samd21/source
-        ${CMAKE_CURRENT_SRC_DIR}../../xdk-asf-3.51.0/thirdparty/CMSIS/Include
-        ${CMAKE_CURRENT_SRC_DIR}../../xdk-asf-3.51.0/thirdparty/CMSIS/Lib/GCC  
+        ${CMAKE_CURRENT_SRC_DIR}../../xdk-asf-3.52.0/sam0/utils/cmsis/samd21/include
+        ${CMAKE_CURRENT_SRC_DIR}../../xdk-asf-3.52.0/sam0/utils/cmsis/samd21/source
+        ${CMAKE_CURRENT_SRC_DIR}../../xdk-asf-3.52.0/thirdparty/CMSIS/Include
+        ${CMAKE_CURRENT_SRC_DIR}../../xdk-asf-3.52.0/thirdparty/CMSIS/Lib/GCC  
 )
 
 set(DEFINES 
@@ -74,7 +74,7 @@ target_link_options(${EXECUTABLE} PRIVATE
         -Wl,--print-memory-usage
         -T ${CMAKE_CURRENT_SOURCE_DIR}/cmsis/samd21j18a_flash.ld)
 
-target_link_libraries(${EXECUTABLE} ${CMAKE_CURRENT_SOURCE_DIR}/../../xdk-asf-3.51.0/thirdparty/CMSIS/Lib/GCC/libarm_cortexM0l_math.a)
+target_link_libraries(${EXECUTABLE} ${CMAKE_CURRENT_SOURCE_DIR}/../../xdk-asf-3.52.0/thirdparty/CMSIS/Lib/GCC/libarm_cortexM0l_math.a)
 
 #Optional: Print executable size as part of the post build process
 add_custom_command(TARGET ${EXECUTABLE}

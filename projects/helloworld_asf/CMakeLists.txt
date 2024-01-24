@@ -18,57 +18,57 @@ set(SOURCES
         ${CMAKE_CURRENT_SRC_DIR}main.cpp
         ${CMAKE_CURRENT_SRC_DIR}cmsis/source/gcc/startup_samd21.c
         ${CMAKE_CURRENT_SRC_DIR}cmsis/source/gcc/system_samd21.c
-        ${CMAKE_CURRENT_SRC_DIR}../../xdk-asf-3.51.0/common/utils/interrupt/interrupt_sam_nvic.c
-        ${CMAKE_CURRENT_SRC_DIR}../../xdk-asf-3.51.0/common2/services/delay/sam0/systick_counter.c
-        ${CMAKE_CURRENT_SRC_DIR}../../xdk-asf-3.51.0/sam0/boards/samd21_xplained_pro/board_init.c
-        ${CMAKE_CURRENT_SRC_DIR}../../xdk-asf-3.51.0/sam0/drivers/port/port.c
-        ${CMAKE_CURRENT_SRC_DIR}../../xdk-asf-3.51.0/sam0/drivers/sercom/sercom.c
-        ${CMAKE_CURRENT_SRC_DIR}../../xdk-asf-3.51.0/sam0/drivers/sercom/usart/usart.c
-        ${CMAKE_CURRENT_SRC_DIR}../../xdk-asf-3.51.0/sam0/drivers/system/system.c
-        ${CMAKE_CURRENT_SRC_DIR}../../xdk-asf-3.51.0/sam0/drivers/system/pinmux/pinmux.c
-        ${CMAKE_CURRENT_SRC_DIR}../../xdk-asf-3.51.0/sam0/drivers/system/interrupt/system_interrupt.c
-        ${CMAKE_CURRENT_SRC_DIR}../../xdk-asf-3.51.0/sam0/drivers/system/clock/clock_samd21_r21_da_ha1/clock.c
-        ${CMAKE_CURRENT_SRC_DIR}../../xdk-asf-3.51.0/sam0/drivers/system/clock/clock_samd21_r21_da_ha1/gclk.c
-        ${CMAKE_CURRENT_SRC_DIR}../../xdk-asf-3.51.0/sam0/utils/stdio/read.c
-        ${CMAKE_CURRENT_SRC_DIR}../../xdk-asf-3.51.0/sam0/utils/stdio/write.c
-        ${CMAKE_CURRENT_SRC_DIR}../../xdk-asf-3.51.0/sam0/utils/syscalls/gcc/syscalls.c
+        ${CMAKE_CURRENT_SRC_DIR}../../xdk-asf-3.52.0/common/utils/interrupt/interrupt_sam_nvic.c
+        ${CMAKE_CURRENT_SRC_DIR}../../xdk-asf-3.52.0/common2/services/delay/sam0/systick_counter.c
+        ${CMAKE_CURRENT_SRC_DIR}../../xdk-asf-3.52.0/sam0/boards/samd21_xplained_pro/board_init.c
+        ${CMAKE_CURRENT_SRC_DIR}../../xdk-asf-3.52.0/sam0/drivers/port/port.c
+        ${CMAKE_CURRENT_SRC_DIR}../../xdk-asf-3.52.0/sam0/drivers/sercom/sercom.c
+        ${CMAKE_CURRENT_SRC_DIR}../../xdk-asf-3.52.0/sam0/drivers/sercom/usart/usart.c
+        ${CMAKE_CURRENT_SRC_DIR}../../xdk-asf-3.52.0/sam0/drivers/system/system.c
+        ${CMAKE_CURRENT_SRC_DIR}../../xdk-asf-3.52.0/sam0/drivers/system/pinmux/pinmux.c
+        ${CMAKE_CURRENT_SRC_DIR}../../xdk-asf-3.52.0/sam0/drivers/system/interrupt/system_interrupt.c
+        ${CMAKE_CURRENT_SRC_DIR}../../xdk-asf-3.52.0/sam0/drivers/system/clock/clock_samd21_r21_da_ha1/clock.c
+        ${CMAKE_CURRENT_SRC_DIR}../../xdk-asf-3.52.0/sam0/drivers/system/clock/clock_samd21_r21_da_ha1/gclk.c
+        ${CMAKE_CURRENT_SRC_DIR}../../xdk-asf-3.52.0/sam0/utils/stdio/read.c
+        ${CMAKE_CURRENT_SRC_DIR}../../xdk-asf-3.52.0/sam0/utils/stdio/write.c
+        ${CMAKE_CURRENT_SRC_DIR}../../xdk-asf-3.52.0/sam0/utils/syscalls/gcc/syscalls.c
 )
 
 set(INCLUDE_DIRS 
         ${CMAKE_CURRENT_SRC_DIR}
         ${CMAKE_CURRENT_SRC_DIR}cmsis/include
-        ${CMAKE_CURRENT_SRC_DIR}../../xdk-asf-3.51.0/common/boards
-        ${CMAKE_CURRENT_SRC_DIR}../../xdk-asf-3.51.0/common/services/serial
-        ${CMAKE_CURRENT_SRC_DIR}../../xdk-asf-3.51.0/common/utils
-        ${CMAKE_CURRENT_SRC_DIR}../../xdk-asf-3.51.0/common/utils/interrupt
-        ${CMAKE_CURRENT_SRC_DIR}../../xdk-asf-3.51.0/common2/services/delay
-        ${CMAKE_CURRENT_SRC_DIR}../../xdk-asf-3.51.0/common2/services/delay/sam0
-        ${CMAKE_CURRENT_SRC_DIR}../../xdk-asf-3.51.0/sam0/boards
-        ${CMAKE_CURRENT_SRC_DIR}../../xdk-asf-3.51.0/sam0/boards/samd21_xplained_pro
-        ${CMAKE_CURRENT_SRC_DIR}../../xdk-asf-3.51.0/sam0/boards/samd21_xplained_pro/board_config
-        ${CMAKE_CURRENT_SRC_DIR}../../xdk-asf-3.51.0/sam0/drivers/port
-        ${CMAKE_CURRENT_SRC_DIR}../../xdk-asf-3.51.0/sam0/drivers/sercom
-        ${CMAKE_CURRENT_SRC_DIR}../../xdk-asf-3.51.0/sam0/drivers/sercom/usart
-        ${CMAKE_CURRENT_SRC_DIR}../../xdk-asf-3.51.0/sam0/drivers/system
-        ${CMAKE_CURRENT_SRC_DIR}../../xdk-asf-3.51.0/sam0/drivers/system/clock
-        ${CMAKE_CURRENT_SRC_DIR}../../xdk-asf-3.51.0/sam0/drivers/system/clock/clock_samd21_r21_da_ha1
-        ${CMAKE_CURRENT_SRC_DIR}../../xdk-asf-3.51.0/sam0/drivers/system/clock/clock_samd21_r21_da_ha1/module_config
-        ${CMAKE_CURRENT_SRC_DIR}../../xdk-asf-3.51.0/sam0/drivers/system/interrupt
-        ${CMAKE_CURRENT_SRC_DIR}../../xdk-asf-3.51.0/sam0/drivers/system/interrupt/system_interrupt_samd21
-        ${CMAKE_CURRENT_SRC_DIR}../../xdk-asf-3.51.0/sam0/drivers/system/pinmux
-        ${CMAKE_CURRENT_SRC_DIR}../../xdk-asf-3.51.0/sam0/drivers/system/power/power_sam_d_r_h
-        ${CMAKE_CURRENT_SRC_DIR}../../xdk-asf-3.51.0/sam0/drivers/system/reset/reset_sam_d_r_h
-        ${CMAKE_CURRENT_SRC_DIR}../../xdk-asf-3.51.0/sam0/utils
-        ${CMAKE_CURRENT_SRC_DIR}../../xdk-asf-3.51.0/sam0/utils/cmsis/samd21/include
-        ${CMAKE_CURRENT_SRC_DIR}../../xdk-asf-3.51.0/sam0/utils/cmsis/samd21/include/component
-        ${CMAKE_CURRENT_SRC_DIR}../../xdk-asf-3.51.0/sam0/utils/cmsis/samd21/include/instance
-        ${CMAKE_CURRENT_SRC_DIR}../../xdk-asf-3.51.0/sam0/utils/cmsis/samd21/include/pio
-        ${CMAKE_CURRENT_SRC_DIR}../../xdk-asf-3.51.0/sam0/utils/cmsis/samd21/source
-        ${CMAKE_CURRENT_SRC_DIR}../../xdk-asf-3.51.0/sam0/utils/header_files
-        ${CMAKE_CURRENT_SRC_DIR}../../xdk-asf-3.51.0/sam0/utils/preprocessor
-        ${CMAKE_CURRENT_SRC_DIR}../../xdk-asf-3.51.0/sam0/utils/stdio/stdio_serial  
-        ${CMAKE_CURRENT_SRC_DIR}../../xdk-asf-3.51.0/thirdparty/CMSIS/Include
-        ${CMAKE_CURRENT_SRC_DIR}../../xdk-asf-3.51.0/thirdparty/CMSIS/Lib/GCC 
+        ${CMAKE_CURRENT_SRC_DIR}../../xdk-asf-3.52.0/common/boards
+        ${CMAKE_CURRENT_SRC_DIR}../../xdk-asf-3.52.0/common/services/serial
+        ${CMAKE_CURRENT_SRC_DIR}../../xdk-asf-3.52.0/common/utils
+        ${CMAKE_CURRENT_SRC_DIR}../../xdk-asf-3.52.0/common/utils/interrupt
+        ${CMAKE_CURRENT_SRC_DIR}../../xdk-asf-3.52.0/common2/services/delay
+        ${CMAKE_CURRENT_SRC_DIR}../../xdk-asf-3.52.0/common2/services/delay/sam0
+        ${CMAKE_CURRENT_SRC_DIR}../../xdk-asf-3.52.0/sam0/boards
+        ${CMAKE_CURRENT_SRC_DIR}../../xdk-asf-3.52.0/sam0/boards/samd21_xplained_pro
+        ${CMAKE_CURRENT_SRC_DIR}../../xdk-asf-3.52.0/sam0/boards/samd21_xplained_pro/board_config
+        ${CMAKE_CURRENT_SRC_DIR}../../xdk-asf-3.52.0/sam0/drivers/port
+        ${CMAKE_CURRENT_SRC_DIR}../../xdk-asf-3.52.0/sam0/drivers/sercom
+        ${CMAKE_CURRENT_SRC_DIR}../../xdk-asf-3.52.0/sam0/drivers/sercom/usart
+        ${CMAKE_CURRENT_SRC_DIR}../../xdk-asf-3.52.0/sam0/drivers/system
+        ${CMAKE_CURRENT_SRC_DIR}../../xdk-asf-3.52.0/sam0/drivers/system/clock
+        ${CMAKE_CURRENT_SRC_DIR}../../xdk-asf-3.52.0/sam0/drivers/system/clock/clock_samd21_r21_da_ha1
+        ${CMAKE_CURRENT_SRC_DIR}../../xdk-asf-3.52.0/sam0/drivers/system/clock/clock_samd21_r21_da_ha1/module_config
+        ${CMAKE_CURRENT_SRC_DIR}../../xdk-asf-3.52.0/sam0/drivers/system/interrupt
+        ${CMAKE_CURRENT_SRC_DIR}../../xdk-asf-3.52.0/sam0/drivers/system/interrupt/system_interrupt_samd21
+        ${CMAKE_CURRENT_SRC_DIR}../../xdk-asf-3.52.0/sam0/drivers/system/pinmux
+        ${CMAKE_CURRENT_SRC_DIR}../../xdk-asf-3.52.0/sam0/drivers/system/power/power_sam_d_r_h
+        ${CMAKE_CURRENT_SRC_DIR}../../xdk-asf-3.52.0/sam0/drivers/system/reset/reset_sam_d_r_h
+        ${CMAKE_CURRENT_SRC_DIR}../../xdk-asf-3.52.0/sam0/utils
+        ${CMAKE_CURRENT_SRC_DIR}../../xdk-asf-3.52.0/sam0/utils/cmsis/samd21/include
+        ${CMAKE_CURRENT_SRC_DIR}../../xdk-asf-3.52.0/sam0/utils/cmsis/samd21/include/component
+        ${CMAKE_CURRENT_SRC_DIR}../../xdk-asf-3.52.0/sam0/utils/cmsis/samd21/include/instance
+        ${CMAKE_CURRENT_SRC_DIR}../../xdk-asf-3.52.0/sam0/utils/cmsis/samd21/include/pio
+        ${CMAKE_CURRENT_SRC_DIR}../../xdk-asf-3.52.0/sam0/utils/cmsis/samd21/source
+        ${CMAKE_CURRENT_SRC_DIR}../../xdk-asf-3.52.0/sam0/utils/header_files
+        ${CMAKE_CURRENT_SRC_DIR}../../xdk-asf-3.52.0/sam0/utils/preprocessor
+        ${CMAKE_CURRENT_SRC_DIR}../../xdk-asf-3.52.0/sam0/utils/stdio/stdio_serial  
+        ${CMAKE_CURRENT_SRC_DIR}../../xdk-asf-3.52.0/thirdparty/CMSIS/Include
+        ${CMAKE_CURRENT_SRC_DIR}../../xdk-asf-3.52.0/thirdparty/CMSIS/Lib/GCC 
 )
 
 set(DEFINES 
@@ -110,7 +110,7 @@ target_link_options(${EXECUTABLE} PRIVATE
         -Wl,--print-memory-usage
         -T ${CMAKE_CURRENT_SOURCE_DIR}/cmsis/samd21j18a_flash.ld)
 
-target_link_libraries(${EXECUTABLE} ${CMAKE_CURRENT_SOURCE_DIR}/../../xdk-asf-3.51.0/thirdparty/CMSIS/Lib/GCC/libarm_cortexM0l_math.a)
+target_link_libraries(${EXECUTABLE} ${CMAKE_CURRENT_SOURCE_DIR}/../../xdk-asf-3.52.0/thirdparty/CMSIS/Lib/GCC/libarm_cortexM0l_math.a)
 
 #Optional: Print executable size as part of the post build process
 add_custom_command(TARGET ${EXECUTABLE}
