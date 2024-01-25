@@ -1,7 +1,6 @@
 
 add_subdirectory(blinky)
-add_subdirectory(blinky_asf)
-add_subdirectory(helloworld_asf)
+add_subdirectory(helloworld)
 add_subdirectory(I2C_Scan_Bus)
-add_subdirectory(read_pot_asf)
+add_subdirectory(read_pot)
 add_subdirectory(SeggerRttPrintfTest)

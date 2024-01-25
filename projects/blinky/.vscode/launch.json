@@ -6,8 +6,8 @@
     "configurations": [
         {
             "cwd": "${workspaceFolder}",
-            "executable": "${workspaceFolder}/build/blinky.elf",
-            "name": "Debug blinky",
+            "executable": "${workspaceFolder}/build/blinky_asf.elf",
+            "name": "Debug blinky_asf",
             "request": "launch",
             "type": "cortex-debug",
             "servertype": "jlink",

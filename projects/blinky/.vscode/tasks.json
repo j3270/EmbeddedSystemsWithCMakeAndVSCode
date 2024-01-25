@@ -6,7 +6,7 @@
         {
             "type": "process",
             "command": "${env:OZONE}",
-            "label": "Ozone blinky",
+            "label": "Ozone blinky_asf",
             "args": [
                 "-device ATSAMD21J18",
                 "-if SWD",
@@ -15,7 +15,7 @@
                 "-project",
                 "${workspaceFolder}/blinky.jdebug",
                 "-programfile",
-                "${workspaceFolder}/build/blinky.elf"
+                "${workspaceFolder}/build/blinky_asf.elf"
             ],
             "problemMatcher": []
         },
