@@ -31,11 +31,15 @@ I am currently using the following evaluation boards for developemnt.
 1. [samd21_xplained_pro](https://www.microchip.com/en-us/development-tool/atsamd21-xpro)  
 a. CMake arg for target is __SAMD21J18A__  
 b. J-Link arg for target is ATSAMD21J18  
-c. SVD file is ATSAMD21J18A.svd  
+c. SVD file is [ATSAMD21J18A](./tools/svd/ATSAMD21J18A.svd)
 2. [Adafruit Feather M0 Basic Proto](https://www.adafruit.com/product/2772?gclid=Cj0KCQiA6NOPBhCPARIsAHAy2zCJ24o8rdmKfSZByKKUvmDvdK_EmlqnPDycbiYHH-I0W7Z0hW63EnwaArjrEALw_wcB)  
 a. CMake arg for target is __SAMD21G18A__  
 b. J-Link arg for target is ATSAMD21G18  
-c. SVD file is ATSAMD21G18A.svd  
+c. SVD file is [ATSAMD21G18A](./tools/svd/ATSAMD21G18A.svd)
+3. [same70_xplained_ultra](https://www.microchip.com/en-us/development-tool/dm320113)  
+a. CMake arg for target is __SAME70Q21B__   
+b. J-Link arg for target is ATSAME70Q21  
+c. SVD file is [ATSAME70Q21B](./tools/svd/ATSAME70Q21B.svd)
 
 I updated the EDBG firmware on the SAMD21_Xplained_pro evaluation board to Segger_OB firmware by following the instructions at this link, [Firmware for Atmel EDBG on Xplained Platforms](https://www.segger.com/products/debug-probes/j-link/models/other-j-links/j-link-edbg/).  This firmware makes the EDBG mcu J-Link compatiable with some limitations that are documented at the previous link.
 
