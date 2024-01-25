@@ -1,14 +1,14 @@
 cmake_minimum_required(VERSION 3.0.0)
 project(SeggerRttPrintfTest VERSION 0.1.0)
 
+include(${CMAKE_CURRENT_SOURCE_DIR}/../../tools/cmake_files/utils.cmake)
+CheckBuildType()
+OutputBuildConfigFlags(${CMAKE_CURRENT_SOURCE_DIR}/../../tools/cmake_files/gccFlags.cmake)
+include(../../tools/cmake_files/gccFlags.cmake)
+
 if(CMAKE_SOURCE_DIR STREQUAL PROJECT_SOURCE_DIR)
         include(CTest)
 	enable_testing()
-	
-	include(${CMAKE_CURRENT_SOURCE_DIR}/../../tools/cmake_files/utils.cmake)
-	CheckBuildType()
-	OutputBuildConfigFlags(${CMAKE_CURRENT_SOURCE_DIR}/../../tools/cmake_files/gccFlags.cmake)
-	include(../../tools/cmake_files/gccFlags.cmake)
 endif()
 
 set(ASSEMBLY_FILES 
