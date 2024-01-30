@@ -367,6 +367,8 @@ extern "C" {
 #  include "samb11_xplained_pro/samb11_xplained_pro.h"
 #elif BOARD == SAME70_XPLAINED
 #  include "same70_xplained/same70_xplained.h"
+#elif BOARD == SAME70_XPLAINED_ULTRA
+#  include "same70_xplained/same70_xplained_ultra.h"
 #elif BOARD == ATMEGA168PB_XPLAINED_MINI
 #  include "atmega168pb_xplained_mini/atmega168pb_xplained_mini.h"
 #elif BOARD == ATMEGA324PB_XPLAINED_PRO

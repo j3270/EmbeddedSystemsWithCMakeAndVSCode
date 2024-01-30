@@ -6,7 +6,7 @@
         {
             "type": "process",
             "command": "${env:OZONE}",
-            "label": "Ozone read_pot_asf",
+            "label": "Ozone samd21_x_plained_pro_read_pot",
             "args": [
                 "-device ATSAMD21J18",
                 "-if SWD",
@@ -15,7 +15,7 @@
                 "-project",
                 "${workspaceFolder}/read_pot.jdebug",
                 "-programfile",
-                "${workspaceFolder}/build/read_pot_asf.elf"
+                "${workspaceFolder}/build/samd21_x_plained_pro_read_pot.elf"
             ],
             "problemMatcher": []
         },

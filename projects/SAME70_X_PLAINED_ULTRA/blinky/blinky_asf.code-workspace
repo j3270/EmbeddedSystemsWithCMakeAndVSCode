@@ -4,8 +4,12 @@
 			"path": "."
 		},
 		{
-			"path": "../../xdk-asf-3.52.0"
+			"path": "../../../xdk-asf-3.52.0"
 		}
 	],
-	"settings": {}
+	"settings": {
+		"files.associations": {
+			"asf.h": "c"
+		}
+	}
 }

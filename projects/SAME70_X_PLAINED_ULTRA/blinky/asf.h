@@ -52,42 +52,63 @@
  * running the ASF driver selector tool. Any changes will be discarded.
  */
 
-// From module: Common SAM0 compiler driver
+/// From module: CAN - Control Area Network Controller
+#include <mcan.h>
+
+// From module: CAN - SN65HVD234 Transceiver
+#include <sn65hvd234.h>
+
+// From module: Common SAM compiler driver
 #include <compiler.h>
 #include <status_codes.h>
+
+// From module: Common build items for user board support templates
+#include <user_board.h>
 
 // From module: Delay routines
 #include <delay.h>
 
+// From module: GPIO - General purpose Input/Output
+#include <gpio.h>
+
 // From module: Generic board support
 #include <board.h>
+
+// From module: IOPORT - General purpose I/O service
+#include <ioport.h>
 
 // From module: Interrupt management - SAM implementation
 #include <interrupt.h>
 
-// From module: PORT - GPIO Pin Control
-#include <port.h>
+// From module: PIO - Parallel Input/Output Controller
+#include <pio.h>
+
+// From module: PMC - Power Management Controller
+#include <pmc.h>
+#include <sleep.h>
 
 // From module: Part identification macros
 #include <parts.h>
 
-// From module: SYSTEM - Clock Management for SAMD09/D10
-#include <clock.h>
-#include <gclk.h>
+// From module: SAM FPU driver
+#include <fpu.h>
 
-// From module: SYSTEM - Core System Driver
-#include <system.h>
+// From module: Standard serial I/O (stdio) - SAM implementation
+#include <stdio_serial.h>
 
-// From module: SYSTEM - I/O Pin Multiplexer
-#include <pinmux.h>
+// From module: System Clock Control - SAME70 implementation
+#include <sysclk.h>
 
-// From module: SYSTEM - Interrupt Driver
-#include <system_interrupt.h>
+// From module: UART - Univ. Async Rec/Trans
+#include <uart.h>
 
-// From module: SYSTEM - Power Management for SAM D20/D21/R21/D09/D10/D11/DA/HA
-#include <power.h>
+// From module: USART - Serial interface - SAM implementation for devices with both UART and USART
+#include <serial.h>
 
-// From module: SYSTEM - Reset Management for SAM D20/D21/R21/D09/D10/D11/DA/HA
-#include <reset.h>
+// From module: USART - Univ. Syn Async Rec/Trans
+#include <usart.h>
+
+// From module: pio_handler support enabled
+#include <pio_handler.h>
 
 #endif // ASF_H

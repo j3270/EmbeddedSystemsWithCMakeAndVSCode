@@ -6,7 +6,7 @@
       {
         "type": "process",
         "command": "${env:OZONE}",
-        "label": "Ozone blinky",
+        "label": "Ozone samd21_x_plained_pro_blinky",
         "args": [
             "-device ATSAMD21J18",
             "-if SWD",
@@ -15,46 +15,30 @@
             "-project",
             "${workspaceFolder}/projects/blinky/blinky.jdebug",
             "-programfile",
-            "${workspaceFolder}/build/projects/blinky/blinky.elf"
+            "${workspaceFolder}/build/projects/blinky/samd21_x_plained_pro_blinky.elf"
         ],
         "problemMatcher": []
       },
       {
-          "type": "process",
-          "command": "${env:OZONE}",
-          "label": "Ozone blinky_asf",
-          "args": [
-              "-device ATSAMD21J18",
-              "-if SWD",
-              "-speed 4000",
-              "-usb",
-              "-project",
-              "${workspaceFolder}/projects/blinky_asf/blinky.jdebug",
-              "-programfile",
-              "${workspaceFolder}/build/projects/blinky_asf/blinky_asf.elf"
-          ],
-          "problemMatcher": []
-      },
-      {
         "type": "process",
         "command": "${env:OZONE}",
-        "label": "Ozone helloworld_asf",
+        "label": "Ozone samd21_x_plained_pro_helloWorld",
         "args": [
             "-device ATSAMD21J18",
             "-if SWD",
             "-speed 4000",
             "-usb",
             "-project",
-            "${workspaceFolder}/projects/helloworld_asf/helloworld.jdebug",
+            "${workspaceFolder}/projects/helloworld/helloworld.jdebug",
             "-programfile",
-            "${workspaceFolder}/build/projects/helloworld_asf/helloworld_asf.elf"
+            "${workspaceFolder}/build/projects/helloworld/samd21_x_plained_pro_helloWorld.elf"
         ],
         "problemMatcher": []
       },
       {
         "type": "process",
         "command": "${env:OZONE}",
-        "label": "Ozone I2C_Scan_Bus",
+        "label": "Ozone samd21_x_plained_pro_I2C_Scan_Bus",
         "args": [
             "-device ATSAMD21J18",
             "-if SWD",
@@ -63,30 +47,30 @@
             "-project",
             "${workspaceFolder}/projects/I2C_Scan_Bus/I2C_Scan_Bus.jdebug",
             "-programfile",
-            "${workspaceFolder}/build/projects/I2C_Scan_Bus/I2C_Scan_Bus.elf"
+            "${workspaceFolder}/build/projects/I2C_Scan_Bus/samd21_x_plained_pro_I2C_Scan_Bus.elf"
         ],
         "problemMatcher": []
       },
       {
         "type": "process",
         "command": "${env:OZONE}",
-        "label": "Ozone read_pot_asf",
+        "label": "Ozone samd21_x_plained_pro_read_pot",
         "args": [
             "-device ATSAMD21J18",
             "-if SWD",
             "-speed 4000",
             "-usb",
             "-project",
-            "${workspaceFolder}/projects/read_pot_asf/read_pot.jdebug",
+            "${workspaceFolder}/projects/read_pot/read_pot.jdebug",
             "-programfile",
-            "${workspaceFolder}/build/projects/read_pot_asf/read_pot_asf.elf"
+            "${workspaceFolder}/build/projects/read_pot/samd21_x_plained_pro_read_pot.elf"
         ],
         "problemMatcher": []
       },
       {
         "type": "process",
         "command": "${env:OZONE}",
-        "label": "Ozone SeggerRttPrintfTest",
+        "label": "Ozone samd21_x_plained_pro_SeggerRttTest",
         "args": [
             "-device ATSAMD21J18",
             "-if SWD",
@@ -95,7 +79,7 @@
             "-project",
             "${workspaceFolder}/projects/SeggerRttPrintfTest/SeggerRttPrintfTest.jdebug",
             "-programfile",
-            "${workspaceFolder}/build/projects/SeggerRttPrintfTest/SeggerRttPrintfTest.elf"
+            "${workspaceFolder}/build/projects/SeggerRttPrintfTest/samd21_x_plained_pro_SeggerRttTest.elf"
         ],
         "problemMatcher": []
       },

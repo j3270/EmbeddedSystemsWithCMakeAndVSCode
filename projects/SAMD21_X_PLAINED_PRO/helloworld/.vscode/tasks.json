@@ -6,7 +6,7 @@
         {
             "type": "process",
             "command": "${env:OZONE}",
-            "label": "Ozone HelloWorld_asf",
+            "label": "Ozone samd21_x_plained_pro_helloWorld",
             "args": [
                 "-device ATSAMD21J18",
                 "-if SWD",
@@ -15,7 +15,7 @@
                 "-project",
                 "${workspaceFolder}/helloworld.jdebug",
                 "-programfile",
-                "${workspaceFolder}/build/HelloWorld_asf.elf"
+                "${workspaceFolder}/build/samd21_x_plained_pro_helloWorld.elf"
             ],
             "problemMatcher": []
         },

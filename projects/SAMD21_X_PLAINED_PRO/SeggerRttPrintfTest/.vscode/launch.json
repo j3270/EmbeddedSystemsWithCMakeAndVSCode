@@ -6,8 +6,8 @@
     "configurations": [
         {
             "cwd": "${workspaceFolder}",
-            "executable": "${workspaceFolder}/build/SeggerRttPrintfTest.elf",
-            "name": "Debug SeggerRttPrintfTest",
+            "executable": "${workspaceFolder}/build/samd21_x_plained_pro_SeggerRttTest.elf",
+            "name": "Debug samd21_x_plained_pro_SeggerRttTest",
             "request": "launch",
             "type": "cortex-debug",
             "servertype": "jlink",
@@ -15,7 +15,7 @@
             "device": "ATSAMD21J18",
             "interface": "swd",
             "serialNumber": "", // add J-Link serial number if having multiple attached the same time.
-            "runToMain": true,
+            "runToEntryPoint": "main",
             "breakAfterReset": true,
             "svdFile": "${workspaceFolder}/../../../tools/svd/ATSAMD21J18A.svd",
 

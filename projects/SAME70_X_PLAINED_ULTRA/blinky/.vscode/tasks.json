@@ -6,16 +6,16 @@
         {
             "type": "process",
             "command": "${env:OZONE}",
-            "label": "Ozone blinky_asf",
+            "label": "Ozone blinky_SAME70",
             "args": [
-                "-device ATSAMD21J18",
+                "-device ATSAME70Q21B",
                 "-if SWD",
                 "-speed 4000",
                 "-usb",
                 "-project",
                 "${workspaceFolder}/blinky.jdebug",
                 "-programfile",
-                "${workspaceFolder}/build/blinky_asf.elf"
+                "${workspaceFolder}/build/blinky_SAME70.elf"
             ],
             "problemMatcher": []
         },

@@ -6,7 +6,7 @@
         {
             "type": "process",
             "command": "${env:OZONE}",
-            "label": "Ozone SeggerRttPrintfTest",
+            "label": "Ozone samd21_x_plained_pro_SeggerRttTest",
             "args": [
                 "-device ATSAMD21J18",
                 "-if SWD",
@@ -15,7 +15,7 @@
                 "-project",
                 "${workspaceFolder}/SeggerRttPrintfTest.jdebug",
                 "-programfile",
-                "${workspaceFolder}/build/SeggerRttPrintfTest.elf"
+                "${workspaceFolder}/build/samd21_x_plained_pro_SeggerRttTest.elf"
             ],
             "problemMatcher": []
         },

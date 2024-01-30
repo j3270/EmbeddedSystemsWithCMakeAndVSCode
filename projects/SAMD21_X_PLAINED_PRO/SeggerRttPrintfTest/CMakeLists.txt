@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 3.0.0)
-project(SeggerRttPrintfTest VERSION 0.1.0)
+project(samd21_x_plained_pro_SeggerRttTest VERSION 0.1.0)
 
 if(CMAKE_SOURCE_DIR STREQUAL PROJECT_SOURCE_DIR)
         include(CTest)
@@ -53,7 +53,7 @@ set(CMAKE_CXX_COMPILE_OBJECT "${CMAKE_CXX_COMPILE_OBJECT} -Wa,-alhn=<OBJECT>.lst
 set(CMAKE_C_COMPILE_OBJECT "${CMAKE_C_COMPILE_OBJECT} -Wa,-alhn=<OBJECT>.lst")
 
 
-set(EXECUTABLE SeggerRttPrintfTest.elf)
+set(EXECUTABLE "${PROJECT_NAME}.elf")
 
 add_executable(${EXECUTABLE} ${SOURCES} ${ASSEMBLY_FILES})
 

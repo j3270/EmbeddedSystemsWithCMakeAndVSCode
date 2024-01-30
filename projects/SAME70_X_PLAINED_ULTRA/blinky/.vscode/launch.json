@@ -7,17 +7,17 @@
         {
             "cwd": "${workspaceFolder}",
             "executable": "${workspaceFolder}/build/blinky_asf.elf",
-            "name": "Debug blinky_asf",
+            "name": "Debug blinky_SAME70",
             "request": "launch",
             "type": "cortex-debug",
             "servertype": "jlink",
             "armToolchainPath": "${env:ARM_NONE_EABI_TOOLCHAIN}/bin",
-            "device": "ATSAMD21J18",
+            "device": "ATSAME70Q21B",
             "interface": "swd",
             "serialNumber": "", // add J-Link serial number if having multiple attached the same time.
-            "runToMain": true,
+            "runToEntryPoint": "main",
             "breakAfterReset": true,
-            "svdFile": "${workspaceFolder}/../../tools/svd/ATSAMD21J18A.svd",
+            "svdFile": "${workspaceFolder}/../../../tools/svd/ATSAME70Q21B.svd",
 
         },
     ]

@@ -1,9 +1,7 @@
 /**
  * \file
  *
- * \brief Linker script for running in internal FLASH on the SAMD21J18A
- *
- * Copyright (c) 2014-2018 Microchip Technology Inc. and its subsidiaries.
+ * Copyright (c) 2015 Microchip Technology Inc. All rights reserved.
  *
  * \asf_license_start
  *
@@ -41,6 +39,9 @@
  *
  */
 
+/*------------------------------------------------------------------------------
+ *      Linker script for running in internal SRAM on the ATSAME70Q21
+ *----------------------------------------------------------------------------*/
 
 OUTPUT_FORMAT("elf32-littlearm", "elf32-littlearm", "elf32-littlearm")
 OUTPUT_ARCH(arm)
@@ -49,12 +50,16 @@ SEARCH_DIR(.)
 /* Memory Spaces Definitions */
 MEMORY
 {
-  rom      (rx)  : ORIGIN = 0x00000000, LENGTH = 0x00040000
-  ram      (rwx) : ORIGIN = 0x20000000, LENGTH = 0x00008000
+  rom (rx)  : ORIGIN = 0x00400000, LENGTH = 0x00200000
+  ram (rwx) : ORIGIN = 0x20400000, LENGTH = 0x00060000
 }
 
 /* The stack size used by the application. NOTE: you need to adjust according to your application. */
-STACK_SIZE = DEFINED(STACK_SIZE) ? STACK_SIZE : DEFINED(__stack_size__) ? __stack_size__ : 0x2000;
+STACK_SIZE = DEFINED(STACK_SIZE) ? STACK_SIZE : 0x2000;
+__ram_end__ = ORIGIN(ram) + LENGTH(ram) - 4;
+
+/* The heapsize used by the application. NOTE: you need to adjust according to your application. */
+HEAP_SIZE = DEFINED(HEAP_SIZE) ? HEAP_SIZE : 0x200;
 
 /* Section Definitions */
 SECTIONS
@@ -84,7 +89,7 @@ SECTIONS
         KEEP (*(.init_array))
         __init_array_end = .;
 
-        . = ALIGN(4);
+        . = ALIGN(0x4);
         KEEP (*crtbegin.o(.ctors))
         KEEP (*(EXCLUDE_FILE (*crtend.o) .ctors))
         KEEP (*(SORT(.ctors.*)))
@@ -106,22 +111,14 @@ SECTIONS
 
         . = ALIGN(4);
         _efixed = .;            /* End of text section */
-    } > rom
+    } > ram
 
-    /* .ARM.exidx is sorted, so has to go in its own output section.  */
-    PROVIDE_HIDDEN (__exidx_start = .);
-    .ARM.exidx :
-    {
-      *(.ARM.exidx* .gnu.linkonce.armexidx.*)
-    } > rom
-    PROVIDE_HIDDEN (__exidx_end = .);
-
-    . = ALIGN(4);
+    . = ALIGN(8);
     _etext = .;
 
     .relocate : AT (_etext)
     {
-        . = ALIGN(4);
+        . = ALIGN(8);
         _srelocate = .;
         *(.ramfunc .ramfunc.*);
         *(.data .data.*);
@@ -152,7 +149,26 @@ SECTIONS
         _estack = .;
     } > ram
 
+    /* heap section */
+    .heap (NOLOAD):
+    {
+        . = ALIGN(8);
+         _sheap = .;
+        . = . + HEAP_SIZE;
+        . = ALIGN(8);
+        _eheap = .;
+    } > ram
+
+    /* .ARM.exidx is sorted, so has to go in its own output section.  */
+    PROVIDE_HIDDEN (__exidx_start = .);
+    .ARM.exidx :
+    {
+      *(.ARM.exidx* .gnu.linkonce.armexidx.*)
+    } > ram
+    PROVIDE_HIDDEN (__exidx_end = .);
+
     . = ALIGN(4);
     _end = . ;
-    end = . ;
+    _ram_end_ = ORIGIN(ram) + LENGTH(ram) -1 ;
 }
+

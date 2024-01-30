@@ -129,7 +129,16 @@
 #if defined(__CC_ARM)
 #  define __always_inline             __forceinline
 #elif (defined __GNUC__)
+
+
+// TODO: Need to figure out how to suppress the warning generated here.
+#pragma GCC diagnostic push
+#pragma GCC diagnostic ignored "-Wall" // doesn't work, obviously
 #  define __always_inline             __attribute__((__always_inline__))
+#pragma GCC diagnostic pop
+
+
+
 #elif (defined __ICCARM__)
 #  define __always_inline             _Pragma("inline=forced")
 #endif

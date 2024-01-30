@@ -6,8 +6,8 @@
     "configurations": [
         {
             "cwd": "${workspaceFolder}",
-            "executable": "./build/projects/blinky/blinky.elf",
-            "name": "Debug blinky",
+            "executable": "./build/projects/blinky/samd21_x_plained_pro_blinky.elf",
+            "name": "Debug samd21_x_plained_pro_blinky",
             "request": "launch",
             "type": "cortex-debug",
             "servertype": "jlink",
@@ -15,15 +15,15 @@
             "device": "ATSAMD21J18",
             "interface": "swd",
             "serialNumber": "", // add J-Link serial number if having multiple attached the same time.
-            "runToMain": true,
+            "runToEntryPoint": "main",
             "breakAfterReset": true,
             "svdFile": "${workspaceFolder}/tools/svd/ATSAMD21J18A.svd",
 
         },
         {
             "cwd": "${workspaceFolder}",
-            "executable": "./build/projects/blinky_asf/blinky_asf.elf",
-            "name": "Debug blinky_asf",
+            "executable": "./build/projects/SeggerRttPrintfTest/samd21_x_plained_pro_SeggerRttTest.elf",
+            "name": "Debug samd21_x_plained_pro_SeggerRttTest",
             "request": "launch",
             "type": "cortex-debug",
             "servertype": "jlink",
@@ -31,15 +31,15 @@
             "device": "ATSAMD21J18",
             "interface": "swd",
             "serialNumber": "", // add J-Link serial number if having multiple attached the same time.
-            "runToMain": true,
+            "runToEntryPoint": "main",
             "breakAfterReset": true,
             "svdFile": "${workspaceFolder}/tools/svd/ATSAMD21J18A.svd",
 
         },
         {
             "cwd": "${workspaceFolder}",
-            "executable": "./build/projects/SeggerRttPrintfTest/SeggerRttPrintfTest.elf",
-            "name": "Debug SeggerRttPrintfTest",
+            "executable": "./build/projects/helloworld/samd21_x_plained_pro_helloWorld.elf",
+            "name": "Debug samd21_x_plained_pro_helloWorld",
             "request": "launch",
             "type": "cortex-debug",
             "servertype": "jlink",
@@ -47,15 +47,15 @@
             "device": "ATSAMD21J18",
             "interface": "swd",
             "serialNumber": "", // add J-Link serial number if having multiple attached the same time.
-            "runToMain": true,
+            "runToEntryPoint": "main",
             "breakAfterReset": true,
             "svdFile": "${workspaceFolder}/tools/svd/ATSAMD21J18A.svd",
 
         },
         {
             "cwd": "${workspaceFolder}",
-            "executable": "./build/projects/helloworld_asf/helloworld_asf.elf",
-            "name": "Debug helloworld_asf",
+            "executable": "./build/projects/read_pot/samd21_x_plained_pro_read_pot.elf",
+            "name": "Debug samd21_x_plained_pro_read_pot",
             "request": "launch",
             "type": "cortex-debug",
             "servertype": "jlink",
@@ -63,15 +63,15 @@
             "device": "ATSAMD21J18",
             "interface": "swd",
             "serialNumber": "", // add J-Link serial number if having multiple attached the same time.
-            "runToMain": true,
+            "runToEntryPoint": "main",
             "breakAfterReset": true,
             "svdFile": "${workspaceFolder}/tools/svd/ATSAMD21J18A.svd",
 
         },
         {
             "cwd": "${workspaceFolder}",
-            "executable": "./build/projects/read_pot_asf/read_pot_asf.elf",
-            "name": "Debug read_pot_asf",
+            "executable": "./build/projects/I2C_Scan_Bus/samd21_x_plained_pro_I2C_Scan_Bus.elf",
+            "name": "Debug samd21_x_plained_pro_I2C_Scan_Bus",
             "request": "launch",
             "type": "cortex-debug",
             "servertype": "jlink",
@@ -79,23 +79,7 @@
             "device": "ATSAMD21J18",
             "interface": "swd",
             "serialNumber": "", // add J-Link serial number if having multiple attached the same time.
-            "runToMain": true,
-            "breakAfterReset": true,
-            "svdFile": "${workspaceFolder}/tools/svd/ATSAMD21J18A.svd",
-
-        },
-        {
-            "cwd": "${workspaceFolder}",
-            "executable": "./build/projects/I2C_Scan_Bus/I2C_Scan_Bus.elf",
-            "name": "Debug I2C_Scan_Bus",
-            "request": "launch",
-            "type": "cortex-debug",
-            "servertype": "jlink",
-            "armToolchainPath": "${env:ARM_NONE_EABI_TOOLCHAIN}/bin",
-            "device": "ATSAMD21J18",
-            "interface": "swd",
-            "serialNumber": "", // add J-Link serial number if having multiple attached the same time.
-            "runToMain": true,
+            "runToEntryPoint": "main",
             "breakAfterReset": true,
             "svdFile": "${workspaceFolder}/tools/svd/ATSAMD21J18A.svd",
 

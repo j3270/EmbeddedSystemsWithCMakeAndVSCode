@@ -1,9 +1,7 @@
 /**
  * \file
  *
- * \brief Low-level initialization functions called upon chip startup.
- *
- * Copyright (c) 2014-2018 Microchip Technology Inc. and its subsidiaries.
+ * Copyright (c) 2015-2018 Microchip Technology Inc. and its subsidiaries.
  *
  * \asf_license_start
  *
@@ -34,38 +32,44 @@
  * Support and FAQ: visit <a href="https://www.microchip.com/support/">Microchip Support</a>
  */
 
-#include "samd21.h"
+#ifndef SYSTEM_SAME70_H_INCLUDED
+#define SYSTEM_SAME70_H_INCLUDED
+
+/* @cond 0 */
+/**INDENT-OFF**/
+#ifdef __cplusplus
+extern "C" {
+#endif
+/**INDENT-ON**/
+/* @endcond */
+
+#include <stdint.h>
+
+extern uint32_t SystemCoreClock; /* System Clock Frequency (Core Clock) */
 
 /**
- * Initial system clock frequency. The System RC Oscillator (RCSYS) provides
- *  the source for the main clock at chip startup.
+ * @brief Setup the microcontroller system.
+ * Initialize the System and update the SystemCoreClock variable.
  */
-#define __SYSTEM_CLOCK    (1000000)
-
-uint32_t SystemCoreClock = __SYSTEM_CLOCK;/*!< System Clock Frequency (Core Clock)*/
+void SystemInit(void);
 
 /**
- * Initialize the system
- *
- * @brief  Setup the microcontroller system.
- *         Initialize the System and update the SystemCoreClock variable.
+ * @brief Updates the SystemCoreClock with current core Clock
+ * retrieved from cpu registers.
  */
-void SystemInit(void)
-{
-	// Keep the default device state after reset
-	SystemCoreClock = __SYSTEM_CLOCK;
-	return;
+void SystemCoreClockUpdate(void);
+
+/**
+ * Initialize flash.
+ */
+void system_init_flash(uint32_t dw_clk);
+
+/* @cond 0 */
+/**INDENT-OFF**/
+#ifdef __cplusplus
 }
+#endif
+/**INDENT-ON**/
+/* @endcond */
 
-/**
- * Update SystemCoreClock variable
- *
- * @brief  Updates the SystemCoreClock with current core Clock
- *         retrieved from cpu registers.
- */
-void SystemCoreClockUpdate(void)
-{
-	// Not implemented
-	SystemCoreClock = __SYSTEM_CLOCK;
-	return;
-}
+#endif /* SYSTEM_SAME70_H_INCLUDED */
