@@ -1,3 +1,3 @@
 
 add_subdirectory(SAMD21_X_PLAINED_PRO)
-#add_subdirectory(SAME70_X_PLAINED_ULTRA)
+add_subdirectory(SAME70_X_PLAINED_ULTRA)

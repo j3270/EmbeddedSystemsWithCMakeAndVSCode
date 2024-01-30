@@ -52,12 +52,6 @@
  * running the ASF driver selector tool. Any changes will be discarded.
  */
 
-/// From module: CAN - Control Area Network Controller
-#include <mcan.h>
-
-// From module: CAN - SN65HVD234 Transceiver
-#include <sn65hvd234.h>
-
 // From module: Common SAM compiler driver
 #include <compiler.h>
 #include <status_codes.h>
